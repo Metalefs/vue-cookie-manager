@@ -1,20 +1,15 @@
 
 <template>
   <div id="app">
-    <button class="show-modal" @click="toggleModal()">Privacidade</button>
+    <button  v-if="!modal.isOpen" class="show-modal" @click="toggleModal()">
+      <div class="avatar show-modal-icon"></div>
+      <p class="show-modal-text">Privacidade</p>
+    </button>
     <modal v-if="modal.isOpen" :has-mask="modal.hasMask" :can-click-mask="modal.canClickMask" :has-x="modal.hasX" @toggle="toggleModal">
       <h3 slot="header">PORTNET-LGPD/POC</h3>
       <article slot="body" v-cloak>
         <section>
-          <p>Aplicação desenvolvida com VueJS.</p>
-          <p>Implementado via script unico, sem dependencias externas. Tamanho aproximado de 100kb e 37kb com GZIP </p>
-          <p><button class="accent" @click="skip(1)">Próximo</button></p>
-          <p><label><input type="checkbox" v-model="showDots" /> Exibir marcações</label></p>
-          <p>
-            <b>movimento</b><br />
-            <label><input type="radio" v-model="orientation" value="row" /> horizontal</label><br />
-            <label><input type="radio" v-model="orientation" value="column" /> vertical</label>
-          </p>
+          
         </section>
         <section>
           <div>
@@ -40,25 +35,30 @@
           <p><button class="primary" @click="toggleModal">Fechar</button></p>
         </section>
       </article>
-    <footer slot="footer">
-      <div class="forward-actions">
-<!--         <button class="secondary skip" :disabled="isLastStep" v-show="!isLastStep" @click="skip(2)">Skip</button> -->
-        <button class="primary next" :disabled="isLastStep" v-show="!isLastStep" @click="skip(1)">próximo</button>
-        <button class="accent save"  @click="finish">fechar</button>
-      </div>
-      
-      <div class="back-actions">
-        <button class="secondary cancel prev" :disabled="isFirstStep" xv-show="!isFirstStep" @click="skip(-1)">anterior</button>
-      </div>
-    </footer>
+      <footer slot="footer">
+
+        <div class="forward-actions">
+          <button class="primary next" :disabled="isLastStep" v-show="!isLastStep" @click="skip(1)">próximo</button>
+          <button class="accent save"  @click="finish">fechar</button>
+        </div>
+        
+        <div class="back-actions">
+          <button class="secondary cancel prev" :disabled="isFirstStep" xv-show="!isFirstStep" @click="skip(-1)">anterior</button>
+        </div>
+        
+      </footer>
     </modal>
   </div>
+
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from './components/Modal.vue';
 
 export default {
+  components: {
+    Modal,
+  },
   data() {
     return {
     modal: {
@@ -156,9 +156,6 @@ export default {
     finish: function(){
       this.toggleModal()
     }
-  },
-  components: {
-    Modal
   }
 }
 </script>
