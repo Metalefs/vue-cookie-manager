@@ -1,0 +1,36 @@
+.tabs ul.lg {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0!important;
+    padding: 0;
+    color: #000;
+}
+.tabs ul.lg .btn {
+    background: #eee;
+    padding: 12px;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 13px;
+    position: relative;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    &:hover {
+        background: #00965d;
+        color: #ffffff;
+    }
+}
+.tabs ul.lg li {
+    list-style: none;
+    display: flex;
+    text-align: center;
+    margin: 0 15px 0 0!important;
+    position: relative;
+    max-width: 26%;
+}
+.tabs ul.lg .btn-default:hover, .tabs ul.lg .active {
+    background: #00965d;
+    color: #ffffff;
+}
