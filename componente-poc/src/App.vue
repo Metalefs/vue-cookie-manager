@@ -10,16 +10,16 @@
       <div class="tabs" slot="header">
         <ul class="lg" slot="header">
           <li @click="goToStep(1)"> 
-            <a class="btn btn-default"  v-bind:class="{ active: this.config.step == 1 }" title="Settings"> Settings </a>
+            <a class="btn btn-default"  v-bind:class="{ active: this.config.step == 1 }" title="Settings"> Configurações </a>
           </li>
           <li @click="goToStep(2)" style=""> 
-            <a class="btn btn-default"  v-bind:class="{ active: this.config.step == 2 }" title="Privacy pоlicy"> Privacy pоlicy </a>
+            <a class="btn btn-default"  v-bind:class="{ active: this.config.step == 2 }" title="Privacy pоlicy"> Politica de Privacidade </a>
           </li>
           <li @click="goToStep(3)" style=""> 
-            <a class="btn btn-default"  v-bind:class="{ active: this.config.step == 3 }" title="Cооkie declaration"> Cооkie declaration </a>
+            <a class="btn btn-default"  v-bind:class="{ active: this.config.step == 3 }" title="Cооkie declaration"> Declaração de Uso de Cookies </a>
           </li>
           <li @click="goToStep(4)" style=""> 
-            <a class="btn btn-default"  v-bind:class="{ active: this.config.step == 4 }" title="Data Request Form"> Data Request Form </a>
+            <a class="btn btn-default"  v-bind:class="{ active: this.config.step == 4 }" title="Data Request Form"> Formulário de Requisição de Dados </a>
           </li>
         </ul>
       </div>
@@ -46,11 +46,6 @@
       </article>
 
       <footer slot="footer">
-        <!-- <div class="forward-actions">
-        </div> -->
-        <!-- <div class="back-actions">
-          <button class="secondary cancel prev" :disabled="isFirstStep" xv-show="!isFirstStep" @click="skip(-1)">anterior</button>
-        </div> -->
         <button class="forward-actions accent save"  @click="finish">Fechar</button>
       </footer>
 
