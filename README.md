@@ -82,3 +82,17 @@ DA API:
 COMO ESCANEAR OS COOKIES ?
 
  - [SUGERIDO NPM PHANTOMJS](https://ourcodeworld.com/articles/read/379/how-to-use-phantomjs-with-node-js). 
+ - SALVAR COOKIES ESCANEADOS POR CLIENTE ATRAVÉS DE CHAVE DE API.
+ - POSSIBILITAR FUNÇÃO DE RE-ESCAN
+ 
+ __________________________________________________________________________________________________________________________________
+ 
+ TECNOLOGIAS:
+ 
+ COMPONENTE: **Sugestão VUEJS**
+ ADMINISTRAÇÃO: ABERTO
+ API: **Sugestão NODEJS**
+ BANCO DE DADOS: ABERTO
+ 
+ 
+ AUTOR: Jackson Pires - Devship
