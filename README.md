@@ -6,13 +6,13 @@ MAPEAMENTO DO FUNCIONAMENTO.
 _________________________________________________________________________________________________________________________________
 DO COMPONENTE:
 
-  - Ler politica de privacidade através de chave de API.
+  - Ler Politica de Privacidade através de chave de API.
   
-  - Ler Declaração de uso de cookies através de chave de API.
+  - Ler Declaração de Uso de Cookies através de chave de API.
   
-  - Ler preferências do plugin através de chave de API.
+  - Ler Preferências do Plugin/Componente através de chave de API.
   
-  - Exibir formulário de requisição de dados pessoais e enviar dados através de chave de API.
+  - Exibir Formulário de Requisição de Dados Pessoais e Enviar Dados através de chave de API.
   
   - GESTOR DE COOKIE:
   
@@ -26,9 +26,9 @@ DO COMPONENTE:
 
 DO CLIENTE:
 
-  - Cadastrar HTML de politica de privacidade sobreescrevendo template original.
+  - Cadastrar HTML de Politica de Privacidade sobreescrevendo template original.
   
-  - Cadastrar Declaração de uso de cookies sobreescrevendo template original.
+  - Cadastrar Declaração de Uso de Cookies sobreescrevendo template original.
   
   - Bloquear execução de plugin manualmente. Substituir tag script para identificar plugins de rastreamento.
 
@@ -38,11 +38,11 @@ DA ADMINISTRAÇÃO:
   
   - Gerar script personalizado para usuário.
   
-  - Permitir edição de politica de privacidade para usuário.
+  - Permitir Edição de Politica de Privacidade para usuário.
   
-  - Permitir edição de Declaração de uso de cookies para usuário.
+  - Permitir Edição de Declaração de Uso de Cookies para usuário.
   
-  - Permitir edição de cookies salvos no site.
+  - Permitir Edição de cookies salvos no site.
     - Alterar nome do grupo.
     - Ativar, Desativar
     - Classificar em padrão e essencial. 
