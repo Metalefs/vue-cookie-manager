@@ -30,11 +30,16 @@ ________________________________________________________________________________
 
 DO CLIENTE:
 
-  - Cadastrar HTML de Politica de Privacidade sobreescrevendo template original.
+  - Cadastrar Politica de Privacidade sobreescrevendo template original.
   
   - Cadastrar Declaração de Uso de Cookies sobreescrevendo template original.
   
-  - Bloquear execução de plugin manualmente. Substituir tag script para identificar plugins de rastreamento.
+  - Cadastrar Formulário de Requisição de Dados Pessoais sobreescrevendo template original.
+  
+  - Cadastrar Preferências do Plugin.
+  
+  - Bloquear execução de plugin manualmente:
+      - Substituir tag script para identificar plugins de rastreamento ([exemplo](https://support.secureprivacy.ai/hc/en-us/articles/360013889638-How-to-block-scripts-and-cookies-with-JavaScript-rewrite-manual-blocking-)).
   
   - Habilitar controle de scripts e cookies na administração.
   
@@ -43,6 +48,8 @@ ________________________________________________________________________________
 DA ADMINISTRAÇÃO:
 
   - Permitir cadastro de usuário.
+  
+  - Permitir login de usuário.
   
   - Gerar script personalizado para usuário.
   
@@ -89,10 +96,10 @@ COMO ESCANEAR OS COOKIES ?
  
  TECNOLOGIAS:
  
- COMPONENTE: **Sugestão VUEJS**
- ADMINISTRAÇÃO: ABERTO
- API: **Sugestão NODEJS**
- BANCO DE DADOS: ABERTO
+  - COMPONENTE: **Sugestão VUEJS**
+  - ADMINISTRAÇÃO: ABERTO
+  - API: **Sugestão NODEJS**
+  - BANCO DE DADOS: ABERTO
  
  
  AUTOR: Jackson Pires - Devship
