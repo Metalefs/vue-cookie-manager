@@ -54,8 +54,8 @@ DA ADMINISTRAÇÃO:
   
   - Permitir Edição de cookies salvos no site.
     - Alterar nome do grupo.
-    - Ativar, Desativar
-    - Classificar em padrão e essencial. 
+    - Ativar, Desativar (expiração)
+    - Classificar prioridade em padrão, médio e essencial. 
   
   - Permitir edição do componente:
     
@@ -66,3 +66,14 @@ DA ADMINISTRAÇÃO:
       - Logo do botão.
       
       - Tema de cor do botão.
+      
+___________________________________________________________________________________________________________________________________
+DA API:
+
+- CADASTRO DO USUÁRIO
+- LOGIN DO USUÁRIO
+- HOSPEDAR SCRIPT DO COMPONENTE
+- SERVIÇO DE ALTERAÇÃO E PERSISTENCIA DE DADOS
+- COLETA DE TODOS OS COOKIES DA PÁGINA DO CLIENTE:
+
+  - Possibilitar scaneio automático de todos os cookies com as informações : 'nome','valor','dominio','expiracao','tamanho','seguro','mesmoSite','prioridade'
