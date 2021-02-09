@@ -14,6 +14,8 @@ DO COMPONENTE:
   
   - Exibir Formulário de Requisição de Dados Pessoais e Enviar Dados através de chave de API.
   
+  - Ler preferencia de ativação através de chave de API.
+  
   - GESTOR DE COOKIE:
   
     - Salvar cookies ativos para o cliente através de chave de API.
@@ -34,6 +36,8 @@ DO CLIENTE:
   
   - Bloquear execução de plugin manualmente. Substituir tag script para identificar plugins de rastreamento.
   
+  - Habilitar controle de scripts e cookies na administração.
+  
 _________________________________________________________________________________________________________________________________
 
 DA ADMINISTRAÇÃO:
@@ -45,6 +49,8 @@ DA ADMINISTRAÇÃO:
   - Permitir Edição de Politica de Privacidade para usuário.
   
   - Permitir Edição de Declaração de Uso de Cookies para usuário.
+  
+  - Permitir controle de ativação do componente.
   
   - Permitir Edição de cookies salvos no site.
     - Alterar nome do grupo.
