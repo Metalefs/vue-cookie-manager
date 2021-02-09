@@ -14,7 +14,7 @@ DO COMPONENTE:
   
   - Exibir Formulário de Requisição de Dados Pessoais e Enviar Dados através de chave de API.
   
-  - Ler preferencia de ativação através de chave de API.
+  - Ler preferencias previas do usuário ná página atual através do armazenamento local.
   
   - GESTOR DE COOKIE:
   
