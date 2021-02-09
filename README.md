@@ -77,3 +77,8 @@ DA API:
 - COLETA DE TODOS OS COOKIES DA PÁGINA DO CLIENTE:
 
   - Possibilitar scaneio automático de todos os cookies com as informações : 'nome','valor','dominio','expiracao','tamanho','seguro','mesmoSite','prioridade'
+  
+  
+COMO ESCANEAR OS COOKIES ?
+
+ - [SUGERIDO NPM PHANTOMJS](https://ourcodeworld.com/articles/read/379/how-to-use-phantomjs-with-node-js). 
