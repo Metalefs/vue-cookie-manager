@@ -24,6 +24,8 @@ DO COMPONENTE:
     
     - Bloqueio automático de carregamento de Iframes dinâmicos quando sem consentimento do usuário (sugerido usar MutationObserver)
 
+_________________________________________________________________________________________________________________________________
+
 DO CLIENTE:
 
   - Cadastrar HTML de Politica de Privacidade sobreescrevendo template original.
@@ -31,6 +33,8 @@ DO CLIENTE:
   - Cadastrar Declaração de Uso de Cookies sobreescrevendo template original.
   
   - Bloquear execução de plugin manualmente. Substituir tag script para identificar plugins de rastreamento.
+  
+_________________________________________________________________________________________________________________________________
 
 DA ADMINISTRAÇÃO:
 
