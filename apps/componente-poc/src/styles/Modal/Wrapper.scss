@@ -15,8 +15,11 @@
     overflow: auto;
     will-change: transform;
     transform: translate(var(--x, 0%), var(--y, 0%));
-    transition: transform 300ms ease-out;
+    transition: transform 100ms ease-out;
+    transition: sizeUP  300ms ease reverse;
     position: relative;
+    
+      
     h2,h3,h4 {
       margin-top: 0;
     }

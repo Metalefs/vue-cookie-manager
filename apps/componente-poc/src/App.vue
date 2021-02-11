@@ -1,11 +1,12 @@
 <template>
   <div id="security-policy">
     <div :class="modal.isOpen ? 'transparent' : ''" id="cookie-law-info-bar" data-nosnippet="true" data-cli-style="cli-style-v2" style="background-color: rgb(12, 12, 12); color: rgb(255, 255, 255); font-family: Arial, Helvetica, sans-serif; bottom: 0px; position: fixed; display: block;">
-      <div class="avatar show-modal-icon"></div>
       <span>
         <div class="cli-bar-container cli-style-v2">
-          <div class="cli-bar-message">Nós usamos cookies e outras tecnologias semelhantes para melhorar a sua experiência em nossos serviços, personalizar publicidade e recomendar conteúdo de seu interesse.  Caso queira personalizar os cookies basta clicar em Gestão de Cookies. 
-            <a href="https://www.portnet.com.br/politica-de-privacidade/" target="_blank">Política de Privacidade. </a>
+          <div class="avatar show-modal-icon"></div>
+          <div class="cli-bar-message">
+            {{TextoBarraModal}} 
+            <a style="color:#f36028;" href="https://www.portnet.com.br/politica-de-privacidade/" target="_blank">Política de Privacidade. </a>
           </div>
           <div class="cli-bar-btn_container">
             <a role="button"  @click="toggleModal()"  tabindex="0" class="cli_settings_button" style="margin: 0px 10px 0px 5px; color: rgb(255, 255, 255);">Gestão de cookies</a>
@@ -15,7 +16,7 @@
       </span>
     </div>
 
-    <modal v-if="modal.isOpen" :has-mask="modal.hasMask" :can-click-mask="modal.canClickMask" :has-x="modal.hasX" @toggle="toggleModal">
+    <modal :class="modal.isOpen ? '' : 'out'" :has-mask="modal.hasMask" :can-click-mask="modal.canClickMask" :has-x="modal.hasX" @toggle="toggleModal">
 
       <div class="tabs" slot="header">
         <ul class="lg" slot="header">
@@ -36,13 +37,13 @@
 
       <article slot="body" v-cloak>
         <section>
-          <Settings :config="config" @skip="skip(1)"></Settings>
+          <Settings :textoVisaoGeralDePrivacidade="TextoVisaoGeral" :config="config" @skip="skip(1)"></Settings>
         </section>
         <section>
-          <PrivacyPolicy></PrivacyPolicy>
+          <PrivacyPolicy :texto="TextoPrivacy"></PrivacyPolicy>
         </section>
         <section>
-          <CookieDeclaration></CookieDeclaration>
+          <CookieDeclaration :texto="TextoCookie"></CookieDeclaration>
         </section>
         <section>
           <DataRequestForm></DataRequestForm>
@@ -77,7 +78,11 @@ import * as service from "./services/lgpg.service";
   },
 })
 export default class App extends Vue {
-  
+  private TextoBarraModal:string = "";
+  private TextoCookieDeclaration:string = "";
+  private TextoPrivacyPolicy:string = "";
+  private TextoVisaoGeralDePrivacidade:string = "";
+
   modal: {
     isOpen:boolean,
     hasMask:boolean,
@@ -96,7 +101,7 @@ export default class App extends Vue {
     showDots: boolean,
     orientation: string,
   } = {
-    step : 1,
+    step : 3,
     max : 1,
     showDots : true,
     orientation : 'row'
@@ -104,11 +109,49 @@ export default class App extends Vue {
   
   constructor(){
     super();
-    service.getVisaoGeralDePrivacidade();
-    service.getCookieDeclaration();
-    service.getPrivacyPolicy();
+    
   }
  
+  mounted(){
+    service.getTextoBarraComponente().then(x=>{
+      this.TextoBarra = x.data;
+    });
+    service.getVisaoGeralDePrivacidade().then(x=>{
+      this.TextoVisaoGeral = x.data.substring(0,445)+"...";
+    });
+    service.getCookieDeclaration().then(x=>{
+      this.TextoCookie = x.data;
+    });
+    service.getPrivacyPolicy().then(x=>{
+      this.TextoPrivacy = x.data;
+    });
+  }
+
+  get TextoBarra():string{
+    return this.TextoBarraModal
+  }
+  get TextoVisaoGeral():string{
+    return this.TextoVisaoGeralDePrivacidade
+  }
+  get TextoCookie():string{
+    return this.TextoCookieDeclaration
+  }
+  get TextoPrivacy():string{
+    return this.TextoPrivacyPolicy;
+  }
+  set TextoBarra(value:string){
+    this.TextoBarraModal = value;
+  }
+  set TextoVisaoGeral(value:string){
+    this.TextoVisaoGeralDePrivacidade = value;
+  }
+  set TextoCookie(value:string){
+    this.TextoCookieDeclaration = value;
+  }
+  set TextoPrivacy(value:string){
+    this.TextoPrivacyPolicy = value;
+  }
+
   get isFirstStep(): boolean {
       return (this.config.step === 1);
   }
@@ -150,16 +193,16 @@ export default class App extends Vue {
 
   $sections:any;
   toggleModal(step:number) {
-      step = step || 1
-      this.modal.isOpen = !this.modal.isOpen
-      if(this.modal.isOpen) {
-        let self = this
-        setTimeout(function(){
-          self.$sections = self.$el.querySelectorAll('section')
-          self.config.max = self.$sections.length
-          self.goToStep(step)
-        }, 1)
-      }
+    step = step || 1
+    this.modal.isOpen = !this.modal.isOpen
+    if(this.modal.isOpen) {
+      let self = this
+      setTimeout(function(){
+        self.$sections = self.$el.querySelectorAll('section')
+        self.config.max = self.$sections.length
+        self.goToStep(step)
+      }, 1)
+    }
   }
   $el:any;
   setCssVars(){
@@ -197,4 +240,37 @@ export default class App extends Vue {
 
 <style lang="scss">
  @import "./styles/App.scss";
+@keyframes blowUpModal {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    margin:auto;
+    transition: max-height 0.15s ease-out;
+    padding: 20px;
+    border-radius: .2rem;
+    &.out {
+      animation: blowUpModal .5s ease forwards;
+      display: none;
+      & > .modal-mask {
+        background: transparent;
+      }
+
+      &.in {
+        transition: max-height 0.15s ease-out;
+        //animation: blowUpModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        animation: blowUpModal .5s ease forwards;
+      }
+    }
+}
 </style>

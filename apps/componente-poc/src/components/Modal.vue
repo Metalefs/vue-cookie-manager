@@ -1,7 +1,7 @@
 <template>
 
     <transition name="modal">
-      <div class="modal cli-modal.cli-blowup">
+      <div class="modal">
 
         <div class="modal-mask" v-if="hasMask" @click="clickMask"></div>
 
@@ -62,6 +62,34 @@
   [v-cloak] {
     display: none;
   }
+
+  .modal-wrapper {
+    z-index: 999999;
+    transform: scale(1);
+    animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    
+  }
+  @keyframes blowUpContent {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    99.9% {
+      transform: scale(2);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes blowUpModal {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
   .cli-modal-close {
       position: absolute;
       right: 0;
@@ -85,9 +113,13 @@
     height: 100vh;
     display: grid;
     margin:auto;
-    max-height: 60px;
-    transition: max-height 0.15s ease-out;
+    &.in{
+
+      transition: max-height 0.15s ease-out;
+    }
     padding: 20px;
+    border-radius: .2rem;
+    
     &-mask {
       background: rgb(0 0 0 / 20%);
       position: absolute;
@@ -144,7 +176,7 @@
     }
     &-enter-active,
     &-leave-active {
-      transition: opacity .25s
+      transition: opacity .15s
     }
     &-enter,
     &-leave-to {
@@ -199,4 +231,30 @@
     transform: translateX(9px) translateY(4px) rotate(-45deg);
     width: 2px;
   }
+
+@keyframes blowUpContent {
+  0% {
+    transform:scale(1);
+    opacity:1;
+  }
+  99.9% {
+    transform:scale(2);
+    opacity:0;
+  }
+  100% {
+    transform:scale(0);
+  }
+}
+
+@keyframes blowUpContentTwo {
+  0% {
+    transform:scale(2);
+    opacity:0;
+  }
+  100% {
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
 </style>

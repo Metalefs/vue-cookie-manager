@@ -5,6 +5,10 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  @Get('getTextoBarraComponente')
+  getTextoBarraComponente(): string {
+    return this.appService.getTextoBarraComponente();
+  }
   @Get('getVisaoGeralDePrivacidade')
   getVisaoGeralDePrivacidade(): string {
     return this.appService.getVisaoGeralDePrivacidade();

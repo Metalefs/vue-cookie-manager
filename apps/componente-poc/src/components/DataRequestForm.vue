@@ -1,14 +1,15 @@
 <template>
     <div>
-        <h4 class="cli-privacy-content-text">Data Request Form</h4>
+        <h4 class="cli-privacy-content-text"> Formulário de Requisição de Dados </h4>
     </div>
 </template>
 <script lang="ts">
     import Vue from 'vue';
-
-    export default Vue.extend({
-        name:'DataRequestForm'
-    })
+    import Component from 'vue-class-component';
+    @Component
+    export default class DataRequestForm extends Vue{
+        
+    }
 </script>
 <style scoped>
 

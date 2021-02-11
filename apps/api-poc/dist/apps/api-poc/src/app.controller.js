@@ -16,6 +16,9 @@ let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
+    getTextoBarraComponente() {
+        return this.appService.getTextoBarraComponente();
+    }
     getVisaoGeralDePrivacidade() {
         return this.appService.getVisaoGeralDePrivacidade();
     }
@@ -26,6 +29,12 @@ let AppController = class AppController {
         return this.appService.getPrivacyPolicy();
     }
 };
+__decorate([
+    common_1.Get('getTextoBarraComponente'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", String)
+], AppController.prototype, "getTextoBarraComponente", null);
 __decorate([
     common_1.Get('getVisaoGeralDePrivacidade'),
     __metadata("design:type", Function),
