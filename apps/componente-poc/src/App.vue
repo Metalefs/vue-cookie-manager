@@ -65,6 +65,7 @@ import Settings from './components/Settings.vue';
 import PrivacyPolicy from './components/PrivacyPolicy.vue';
 import CookieDeclaration from './components/CookieDeclaration.vue';
 import DataRequestForm from './components/DataRequestForm.vue';
+import * as service from "./services/lgpg.service";
 
 @Component({
   components: {
@@ -100,10 +101,12 @@ export default class App extends Vue {
     showDots : true,
     orientation : 'row'
   }
-
+  
   constructor(){
     super();
-   
+    service.getVisaoGeralDePrivacidade();
+    service.getCookieDeclaration();
+    service.getPrivacyPolicy();
   }
  
   get isFirstStep(): boolean {
