@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Cookie Declaration Overview:</h3>
+        <h4 class="cli-privacy-content-text">Cookie Declaration Overview</h4>
     </div>
 </template>
 <script>

@@ -1,7 +1,7 @@
 <template>
 
     <transition name="modal">
-      <div class="modal">
+      <div class="modal cli-modal.cli-blowup">
 
         <div class="modal-mask" v-if="hasMask" @click="clickMask"></div>
 
@@ -11,14 +11,12 @@
             <slot name="header">
               
             </slot>
-            <div class="x-touch"  @click="clickMask">
-                <div class="x">
-                  <div class="line1"></div>
-                  <div class="line2"></div>
-                </div>
-            </div>
-          </div>
 
+            <button type="button" @click="clickX" class="cli-modal-close" id="cliModalClose">
+              <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+              <span class="wt-cli-sr-only">Fechar</span>
+            </button>
+          </div>
           <div class="modal-body">
             <slot name="body">
               Body
@@ -30,7 +28,6 @@
               Footer
             </slot>
           </div>
-          <div class="modal__x" v-if="hasX" @click="clickX">&times;</div>
         </div>
       </div>
     </transition>
@@ -63,7 +60,21 @@
   [v-cloak] {
     display: none;
   }
-
+  .cli-modal-close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+      -webkit-appearance: none;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      padding: 10px;
+      background: transparent;
+      border: none;
+      min-width: 40px;
+  }
   .modal {
     position: fixed;
     top: 0;
@@ -71,8 +82,10 @@
     width: 100vw;
     height: 100vh;
     display: grid;
-    // align-items: center;
-    // justify-content: center;
+    margin:auto;
+    max-height: 60px;
+    transition: max-height 0.15s ease-out;
+    padding: 20px;
     &-mask {
       background: rgb(0 0 0 / 20%);
       position: absolute;
@@ -84,12 +97,31 @@
     &-body{
       max-height: 50vh;
       overflow-y: scroll;
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      width: 100%;
+      pointer-events: auto;
+      background-color: #fff;
+      background-clip: padding-box;
+      border-radius: .2rem;
+      box-sizing: border-box;
+      outline: 0;
+      font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif;
+      & h4,h1{
+        font-family: inherit;
+        font-size: 16px;
+        margin-bottom: 15px;
+        margin: 10px 0;
+      }
     }
     &-wrapper {
       position: relative;
       width: 65vw;
-      max-width: 60em;
-      min-width: 30em;
+      // max-width: 60em;
+      // min-width: 30em;
       max-height: 67vh;
       margin: auto;
       background: #fff;

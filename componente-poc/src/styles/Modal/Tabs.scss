@@ -9,7 +9,7 @@
 .tabs ul.lg .btn {
     background: #eee;
     padding: 12px;
-    border-radius: 1px;
+    border-radius: .3rem;
     cursor: pointer;
     font-size: 13px;
     position: relative;
@@ -17,20 +17,28 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    border-radius: 5px;
+    padding: 12px 15px;
+    cursor: pointer;
+    background-color: #fff;
+    background-clip: padding-box;
+    transition: background-color 0.2s ease-out 0.3s, color 0.2s ease-out 0s;
     &:hover {
         background: #00965d;
         color: #ffffff;
     }
 }
 .tabs ul.lg li {
-    list-style: none;
-    display: flex;
-    text-align: center;
-    margin: 0 15px 0 0!important;
     position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #000;
+    text-transform: capitalize;
     max-width: 26%;
+    font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif;
 }
 .tabs ul.lg .btn-default:hover, .tabs ul.lg .active {
-    background: #00965d;
-    color: #ffffff;
+    background: #fff;
+    color: grey;
 }

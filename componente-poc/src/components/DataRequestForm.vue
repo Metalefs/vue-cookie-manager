@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Data Request Form:</h3>
+        <h4 class="cli-privacy-content-text">Data Request Form</h4>
     </div>
 </template>
 <script>

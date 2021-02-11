@@ -1,9 +1,19 @@
 <template>
   <div id="security-policy">
-    <button  v-if="!modal.isOpen" class="expand show-modal from from-contents" @click="toggleModal()">
+    <div :class="modal.isOpen ? 'transparent' : ''" id="cookie-law-info-bar" data-nosnippet="true" data-cli-style="cli-style-v2" style="background-color: rgb(12, 12, 12); color: rgb(255, 255, 255); font-family: Arial, Helvetica, sans-serif; bottom: 0px; position: fixed; display: block;">
       <div class="avatar show-modal-icon"></div>
-      <p class="show-modal-text">Privacidade</p>
-    </button>
+      <span>
+        <div class="cli-bar-container cli-style-v2">
+          <div class="cli-bar-message">Nós usamos cookies e outras tecnologias semelhantes para melhorar a sua experiência em nossos serviços, personalizar publicidade e recomendar conteúdo de seu interesse.  Caso queira personalizar os cookies basta clicar em Gestão de Cookies. 
+            <a href="https://www.portnet.com.br/politica-de-privacidade/" target="_blank">Política de Privacidade. </a>
+          </div>
+          <div class="cli-bar-btn_container">
+            <a role="button"  @click="toggleModal()"  tabindex="0" class="cli_settings_button" style="margin: 0px 10px 0px 5px; color: rgb(255, 255, 255);">Gestão de cookies</a>
+            <a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button" style="display: inline-block; color: rgb(255, 255, 255); background-color: rgb(243, 96, 40);">Aceitar</a>
+          </div>
+        </div>
+      </span>
+    </div>
 
     <modal v-if="modal.isOpen" :has-mask="modal.hasMask" :can-click-mask="modal.canClickMask" :has-x="modal.hasX" @toggle="toggleModal">
 
@@ -30,23 +40,17 @@
         </section>
         <section>
           <PrivacyPolicy></PrivacyPolicy>
-          <p><button class="primary" @click="goToStep(5)">Final</button></p>
-          <p><button class="primary" @click="toggleModal">Fechar</button></p>
-          <p><button class="primary" @click="skip(1)">Próximo</button></p>
         </section>
         <section>
           <CookieDeclaration></CookieDeclaration>
-          <p><button @click="reset()">Reset</button></p>
-          <p><button class="primary" @click="skip(1)">Próximo</button></p>
         </section>
         <section>
           <DataRequestForm></DataRequestForm>
-          <p><button class="primary" @click="toggleModal">Fechar</button></p>
         </section>
       </article>
 
       <footer slot="footer">
-        <button class="forward-actions accent save"  @click="finish">Fechar</button>
+        <!-- <button class="forward-actions accent save"  @click="finish">Salvar</button> -->
       </footer>
 
     </modal>
