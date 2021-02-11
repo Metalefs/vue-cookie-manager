@@ -34,26 +34,28 @@
   
 </template>
 
-<script>
-  export default {
-    name: 'Modal',
-    
-    props: [
-      'hasX',
-      'hasMask',
-      'canClickMask'
-    ],
-    methods: {
-      clickX: function(){
-        this.$emit('toggle')
-      },
-      clickMask: function(){
-        if(this.canClickMask) {
+<script lang="ts">
+    import Vue from 'vue';
+
+    export default Vue.extend({
+      name: 'Modal',
+      
+      props: [
+        'hasX',
+        'hasMask',
+        'canClickMask'
+      ],
+      methods: {
+        clickX: function(){
           this.$emit('toggle')
+        },
+        clickMask: function(){
+          if(this.canClickMask) {
+            this.$emit('toggle')
+          }
         }
       }
-    }
-  }
+    });
 </script>
 
 <style scoped lang="scss">

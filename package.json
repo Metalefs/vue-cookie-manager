@@ -1,0 +1,56 @@
+{
+    "name": "monorepify",
+    "version": "1.0.0",
+    "description": "A boilerplate for Full stack VueJS and nestJS and other typescript frameworks too. But i believe you can add JS frameworks too (with little modification)",
+    "private": true,
+    "author": {
+      "name": "Em Ji Madhu",
+      "email": "emjimadhu@gmail.com"
+    },
+    "license": "MIT",
+    "workspaces": {
+      "packages": [
+        "apps/*",
+        "libs/*"
+      ]
+    },
+    "scripts": {
+      "dev:all:start": "concurrently --names \"SHARED,VUE,NEST\" -c \"yellow.bold,yellow.bold\" \"yarn dev:shared:start\" \"yarn dev:vue:start\" \"yarn dev:nest:start\"",
+      "dev:all:build": "yarn dev:shared:build && yarn dev:vue:build && yarn dev:nest:build",
+      
+      "dev:componente:start": "cd apps/componente-poc && npm run serve",
+      "dev:componente:build": "cd apps/componente-poc && npm run build",
+      "dev:consumidor:start": "cd apps/consumidor-poc && npm run serve",
+      "dev:consumidor:build": "cd apps/consumidor-poc && npm run build",
+    
+      "dev:nest:build": "cd apps/api-poc && yarn build",
+      "dev:nest:start": "cd apps/api-poc && yarn start:dev",
+      "dev:nest:lint": "cd apps/api-poc && yarn lint",
+      "prod:nest:start": "cd apps/api-poc && yarn start:prod",
+
+      "utils:remove-node-modules": "rimraf node_modules apps/componente-poc/node_modules apps/api-poc/node_modules libs/shared/node_modules"
+    },
+    "devDependencies": {
+      "@types/jest": "24.9.1",
+      "@types/node": "12.12.22",
+      "@vue/cli-plugin-typescript": "^4.5.11",
+      "concurrently": "5.0.2",
+      "jest": "24.9.0",
+      "lint-staged": "9.5.0",
+      "rimraf": "3.0.0",
+      "ts-jest": "24.2.0",
+      "ts-node": "8.5.4",
+      "tsconfig-paths": "3.9.0",
+      "tslint": "5.20.1",
+      "typescript": "~3.9.3"
+    },
+    "dependencies": {
+      "@monorepify/shared": "1.0.0",
+      "reflect-metadata": "0.1.13"
+    },
+    "engines": {
+      "node": ">=12.0.0",
+      "npm": ">=6.0.0",
+      "yarn": ">=1.21.0"
+    }
+  }

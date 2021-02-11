@@ -3,10 +3,12 @@
         <h4 class="cli-privacy-content-text">Data Request Form</h4>
     </div>
 </template>
-<script>
-export default {
-    name:'DataRequestForm'
-}
+<script lang="ts">
+    import Vue from 'vue';
+
+    export default Vue.extend({
+        name:'DataRequestForm'
+    })
 </script>
 <style scoped>
 

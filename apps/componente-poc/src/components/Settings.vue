@@ -6,18 +6,20 @@
 </template>
 
 
-<script>
-  export default {
-    name: 'Settings',
-    props: [
-        'config',
-    ],
-    methods: {
-        skip: function(){
-            this.$emit('skip')
+<script lang="ts">
+    import Vue from 'vue';
+
+    export default Vue.extend({
+        name: 'Settings',
+        props: [
+            'config',
+        ],
+        methods: {
+            skip: function(){
+                this.$emit('skip')
+            },
         },
-    },
-}
+    })
 </script>
 
 

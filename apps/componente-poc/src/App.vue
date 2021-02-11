@@ -58,14 +58,15 @@
 
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import Modal from './components/Modal.vue';
 import Settings from './components/Settings.vue';
 import PrivacyPolicy from './components/PrivacyPolicy.vue';
 import CookieDeclaration from './components/CookieDeclaration.vue';
 import DataRequestForm from './components/DataRequestForm.vue';
 
-export default {
+@Component({
   components: {
     Modal,
     Settings,
@@ -73,65 +74,79 @@ export default {
     CookieDeclaration,
     DataRequestForm
   },
-  data() {
-    return {
-      modal: {
-        isOpen: false,
-        hasMask: true,
-        canClickMask: true,
-        hasX: false
-      },
-      config :{
-        step: 1,
-        max: 1,
-        showDots: true,
-        orientation: 'row',
-        // xray: 'hidden'
-      }
-    }
-  },
-  computed: {
-    isFirstStep: function(){
-      return (this.config.step === 1)
-    },
-    isLastStep: function(){
-      return (this.config.step === this.config.max)
-    },
-    hasDots: function(){
-      return (this.config.max > 1 && this.config.showDots)
-    },
-    x_multiplier: function(){
-      return (this.config.orientation === 'row' ? -1 : 0)
-    },
-    y_multiplier: function(){
-      return (this.config.orientation === 'row' ? 0 : -1)
-    },
-    axis: function() {
-      return (this.config.orientation === 'row' ? 'row' : 'column')
-    },
-    axisReverse: function() {
-      return (this.config.orientation === 'row' ? 'row-reverse' : 'column-reverse')
-    },
-    cross: function() {
-      return (this.config.orientation === 'row' ? 'column' : 'row')
-    },
-    crossReverse: function() {
-      return (this.config.orientation === 'row' ? 'column-reverse' : 'row-reverse')
-    },
-    nextIcon: function() {
-      return (this.config.orientation === 'row' ? 'fa-arrow-right' : 'fa-arrow-down')
-    },
-    backIcon: function() {
-      return (this.config.orientation === 'row' ? 'fa-arrow-left' : 'fa-arrow-up')
-    },
-    
-  },
-  watch: {
-    orientation: 'setCssVars',
-    // xray: 'setCssVars'
-  },
-  methods: {
-    toggleModal: function(step) {
+})
+export default class App extends Vue {
+  
+  modal: {
+    isOpen:boolean,
+    hasMask:boolean,
+    canClickMask:boolean,
+    hasX:boolean
+  } = {
+    isOpen : false,
+    hasMask : true,
+    canClickMask : true,
+    hasX : false,
+  }
+
+  config :{
+    step: number,
+    max: number,
+    showDots: boolean,
+    orientation: string,
+  } = {
+    step : 1,
+    max : 1,
+    showDots : true,
+    orientation : 'row'
+  }
+
+  constructor(){
+    super();
+   
+  }
+ 
+  get isFirstStep(): boolean {
+      return (this.config.step === 1);
+  }
+  get isLastStep(): boolean{
+    return (this.config.step === this.config.max)
+  }
+  get hasDots(): boolean{
+    return (this.config.max > 1 && this.config.showDots)
+  }
+  get x_multiplier() :number{
+    return (this.config.orientation === 'row' ? -1 : 0)
+  }
+  get y_multiplier() :number{
+    return (this.config.orientation === 'row' ? 0 : -1)
+  }
+  get axis() :string{
+    return (this.config.orientation === 'row' ? 'row' : 'column')
+  }
+  get axisReverse() :string{
+    return (this.config.orientation === 'row' ? 'row-reverse' : 'column-reverse')
+  }
+  get cross() :string{
+    return (this.config.orientation === 'row' ? 'column' : 'row')
+  }
+  get crossReverse() :string{
+    return (this.config.orientation === 'row' ? 'column-reverse' : 'row-reverse')
+  }
+  get nextIcon() :string{
+    return (this.config.orientation === 'row' ? 'fa-arrow-right' : 'fa-arrow-down')
+  }
+  get backIcon() :string{
+    return (this.config.orientation === 'row' ? 'fa-arrow-left' : 'fa-arrow-up')
+  }
+
+  @Watch('orientation')
+  onPropertyChanged() {
+    this.setCssVars();
+  }
+
+  $sections:any;
+  toggleModal(step:number) {
       step = step || 1
       this.modal.isOpen = !this.modal.isOpen
       if(this.modal.isOpen) {
@@ -142,40 +157,41 @@ export default {
           self.goToStep(step)
         }, 1)
       }
-    },
-    setCssVars: function(){
-      this.$el.style.setProperty('--x', (((this.config.step * 100) - 100) * this.x_multiplier) + '%')
-      this.$el.style.setProperty('--y', (((this.config.step * 100) - 100) * this.y_multiplier) + '%')
-      this.$el.style.setProperty('--axis', this.axis)
-      this.$el.style.setProperty('--axis-reverse', this.axisReverse)
-      this.$el.style.setProperty('--cross', this.cross)
-      this.$el.style.setProperty('--cross-reverse', this.crossReverse)
-      // this.$el.style.setProperty('--vision', this.xray)
-    },
-    goToStep: function(step){
-      this.config.step = step > this.config.max ? this.config.max : step < 1 ? 1 : step
-      this.currentSection = this.$sections[this.config.step-1]
-      this.$sections.forEach(function(section){
-        section.classList.remove('current')
-      })
-      this.currentSection.classList.add('current')
-      this.currentSection.scrollTop = 0
-      this.setCssVars()
-    },
-    skip: function(step){
-      this.config.step+=step
-      this.goToStep(this.config.step)
-    },
-    reset: function(){
-      this.goToStep(1)
-    },
-    finish: function(){
-      this.toggleModal()
-    }
+  }
+  $el:any;
+  setCssVars(){
+    this.$el.style.setProperty('--x', (((this.config.step * 100) - 100) * this.x_multiplier) + '%')
+    this.$el.style.setProperty('--y', (((this.config.step * 100) - 100) * this.y_multiplier) + '%')
+    this.$el.style.setProperty('--axis', this.axis)
+    this.$el.style.setProperty('--axis-reverse', this.axisReverse)
+    this.$el.style.setProperty('--cross', this.cross)
+    this.$el.style.setProperty('--cross-reverse', this.crossReverse)
+    // this.$el.style.setProperty('--vision', this.xray)
+  }
+  currentSection:any;
+  goToStep(step:number){
+    this.config.step = step > this.config.max ? this.config.max : step < 1 ? 1 : step
+    this.currentSection = this.$sections[this.config.step-1]
+    this.$sections.forEach(function(section:any){
+      section.classList.remove('current')
+    })
+    this.currentSection.classList.add('current')
+    this.currentSection.scrollTop = 0
+    this.setCssVars()
+  }
+  skip(step:number){
+    this.config.step+=step
+    this.goToStep(this.config.step)
+  }
+  reset(){
+    this.goToStep(1)
+  }
+  finish(){
+    this.toggleModal(0)
   }
 }
 </script>
 
 <style lang="scss">
-  @import "./styles/App.scss";
+ @import "./styles/App.scss";
 </style>
