@@ -11,4 +11,5 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./PreferenciasComponente.interface"), exports);
+__exportStar(require("./ClienteComponente.interface"), exports);
 //# sourceMappingURL=index.js.map

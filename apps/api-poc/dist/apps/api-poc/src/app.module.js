@@ -8,15 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
+const componente_controller_1 = require("./controllers/componente.controller");
+const key_interceptor_1 = require("./middlewares/key.interceptor");
+const componente_service_1 = require("./services/componente.service");
+const cookieScan_service_1 = require("./services/cookieScan.service");
+const usuario_service_1 = require("./services/usuario.service");
 let AppModule = class AppModule {
+    configure(consumer) {
+        consumer
+            .apply(key_interceptor_1.KeyInterceptor)
+            .forRoutes(componente_controller_1.ComponenteController);
+    }
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        controllers: [componente_controller_1.ComponenteController],
+        providers: [componente_service_1.ComponenteService, cookieScan_service_1.CookieScan, usuario_service_1.UsuarioService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

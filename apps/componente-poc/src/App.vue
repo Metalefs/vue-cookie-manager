@@ -40,7 +40,7 @@
           <Settings :textoVisaoGeralDePrivacidade="TextoVisaoGeral" :config="config" @skip="skip(1)"></Settings>
         </section>
         <section>
-          <PrivacyPolicy :texto="TextoPrivacy"></PrivacyPolicy>
+          <PrivacyPolicy :Cookies="cookies" :texto="TextoPrivacy"></PrivacyPolicy>
         </section>
         <section>
           <CookieDeclaration :texto="TextoCookie"></CookieDeclaration>
@@ -67,6 +67,7 @@ import PrivacyPolicy from './components/PrivacyPolicy.vue';
 import CookieDeclaration from './components/CookieDeclaration.vue';
 import DataRequestForm from './components/DataRequestForm.vue';
 import * as service from "./services/lgpg.service";
+import { getAllCookies } from './services/cookie.service';
 
 @Component({
   components: {
@@ -82,6 +83,7 @@ export default class App extends Vue {
   private TextoCookieDeclaration:string = "";
   private TextoPrivacyPolicy:string = "";
   private TextoVisaoGeralDePrivacidade:string = "";
+  private cookies:{}[]= [];
 
   modal: {
     isOpen:boolean,
@@ -124,6 +126,9 @@ export default class App extends Vue {
     });
     service.getPrivacyPolicy().then(x=>{
       this.TextoPrivacy = x.data;
+    });
+    getAllCookies().then(x=>{
+      this.cookies = x;
     });
   }
 

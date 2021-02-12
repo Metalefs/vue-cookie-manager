@@ -1,7 +1,5 @@
 import Http from './http'; // não precisa de .js
 
-//export const create = ({ firstName, lastName }) => Http.post('/user', { firstName, lastName });
-
 export const getTextoBarraComponente = (page = 0, extraParams = {}) => {
   const params = { page, ...extraParams }; 
   
@@ -21,4 +19,9 @@ export const getPrivacyPolicy = (page = 0, extraParams = {}) => {
   const params = { page, ...extraParams }; 
   
   return Http.get<string>('/getPrivacyPolicy', { params });
+};
+export const getUserPreferences = (KEY = 0, extraParams = {}) => {
+  const params = { KEY, ...extraParams }; 
+  
+  return Http.get<string>('/getUserPreferences', { params });
 };

@@ -23,10 +23,10 @@
       "dev:consumidor:start": "cd apps/consumidor-poc && npm run serve",
       "dev:consumidor:build": "cd apps/consumidor-poc && npm run build",
     
-      "dev:nest:build": "cd apps/api-poc && yarn build",
-      "dev:nest:start": "cd apps/api-poc && yarn start:dev",
-      "dev:nest:lint": "cd apps/api-poc && yarn lint",
-      "prod:nest:start": "cd apps/api-poc && yarn start:prod",
+      "dev:nest:build": "cd apps/api-poc && npm run build",
+      "dev:nest:start": "cd apps/api-poc && npm run start:dev",
+      "dev:nest:lint": "cd apps/api-poc && npm run lint",
+      "prod:nest:start": "cd apps/api-poc && npm run start:prod",
 
       "utils:remove-node-modules": "rimraf node_modules apps/componente-poc/node_modules apps/api-poc/node_modules libs/shared/node_modules"
     },

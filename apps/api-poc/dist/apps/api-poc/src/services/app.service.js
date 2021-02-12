@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
-const index_1 = require("../../../libs/shared/src/interfaces/index");
+const index_1 = require("../../../../libs/shared/src/interfaces/index");
 let AppService = class AppService {
     getTextoBarraComponente() {
         return 'Nós usamos cookies e outras tecnologias semelhantes para melhorar a sua experiência em nossos serviços, personalizar publicidade e recomendar conteúdo de seu interesse. Caso queira personalizar os cookies basta clicar em Gestão de Cookies.';
@@ -65,6 +65,7 @@ let AppService = class AppService {
                 }
             };
         }
+        throw 'erro';
     }
 };
 AppService = __decorate([

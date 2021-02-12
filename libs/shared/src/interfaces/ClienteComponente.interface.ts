@@ -1,5 +1,8 @@
 export interface ClienteComponente{
     identificador:string;
+    email:string;
+    nome:string;
+    cpf:string;
     statusAtivacao:StatusAtivacaoCliente;
     dominios:DominioCliente[];
     chaveAPI:string;

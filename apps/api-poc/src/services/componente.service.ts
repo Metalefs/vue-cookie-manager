@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { PreferenciasComponente,FuncaoTabComponente } from '../../../libs/shared/src/interfaces/index';
+import { PreferenciasComponente,FuncaoTabComponente } from '../../../../libs/shared/src/interfaces/index';
 
 @Injectable()
-export class AppService {
+export class ComponenteService {
   getTextoBarraComponente(): string { 
     return 'Nós usamos cookies e outras tecnologias semelhantes para melhorar a sua experiência em nossos serviços, personalizar publicidade e recomendar conteúdo de seu interesse. Caso queira personalizar os cookies basta clicar em Gestão de Cookies.';
   }
@@ -61,5 +61,6 @@ export class AppService {
         }
       }
     }
+    throw 'erro';
   }
 }

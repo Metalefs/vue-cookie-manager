@@ -12,81 +12,85 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppController = void 0;
+exports.ComponenteController = void 0;
 const common_1 = require("@nestjs/common");
-const app_service_1 = require("./services/app.service");
-const cookieScan_service_1 = require("./services/cookieScan.service");
-const usuario_service_1 = require("./services/usuario.service");
-let AppController = class AppController {
-    constructor(appService, cookieScan, usuarioService) {
-        this.appService = appService;
+const componente_service_1 = require("../services/componente.service");
+const cookieScan_service_1 = require("../services/cookieScan.service");
+const usuario_service_1 = require("../services/usuario.service");
+let ComponenteController = class ComponenteController {
+    constructor(componenteService, cookieScan, usuarioService) {
+        this.componenteService = componenteService;
         this.cookieScan = cookieScan;
         this.usuarioService = usuarioService;
     }
-    getTextoBarraComponente() {
-        return this.appService.getTextoBarraComponente();
+    getTextoBarraComponente(query) {
+        return this.componenteService.getTextoBarraComponente();
     }
-    getVisaoGeralDePrivacidade() {
-        return this.appService.getVisaoGeralDePrivacidade();
+    getVisaoGeralDePrivacidade(query) {
+        return this.componenteService.getVisaoGeralDePrivacidade();
     }
-    getCookieDeclaration() {
-        return this.appService.getCookieDeclaration();
+    getCookieDeclaration(query) {
+        return this.componenteService.getCookieDeclaration();
     }
-    getPrivacyPolicy() {
-        return this.appService.getPrivacyPolicy();
+    getPrivacyPolicy(query) {
+        return this.componenteService.getPrivacyPolicy();
     }
     async getUserPreferences(query) {
-        let UserID = await this.usuarioService.ObterPorAPI_KEY(query.KEY);
-        return this.appService.getUserPreferences(UserID);
+        let UserID = await (await this.usuarioService.ObterPorAPI_KEY(query.KEY)).identificador;
+        return this.componenteService.getUserPreferences(UserID);
     }
     async CookieScan(query) {
-        console.log(query);
-        return await this.cookieScan.Scan(query.url);
+        let Dominio = await (await this.usuarioService.ObterPorAPI_KEY(query.KEY)).dominios[0];
+        return await this.cookieScan.Scan(Dominio.endereco);
     }
 };
 __decorate([
     common_1.Get('getTextoBarraComponente'),
+    __param(0, common_1.Query()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", String)
-], AppController.prototype, "getTextoBarraComponente", null);
+], ComponenteController.prototype, "getTextoBarraComponente", null);
 __decorate([
     common_1.Get('getVisaoGeralDePrivacidade'),
+    __param(0, common_1.Query()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", String)
-], AppController.prototype, "getVisaoGeralDePrivacidade", null);
+], ComponenteController.prototype, "getVisaoGeralDePrivacidade", null);
 __decorate([
     common_1.Get('getCookieDeclaration'),
+    __param(0, common_1.Query()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", String)
-], AppController.prototype, "getCookieDeclaration", null);
+], ComponenteController.prototype, "getCookieDeclaration", null);
 __decorate([
     common_1.Get('getPrivacyPolicy'),
+    __param(0, common_1.Query()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", String)
-], AppController.prototype, "getPrivacyPolicy", null);
+], ComponenteController.prototype, "getPrivacyPolicy", null);
 __decorate([
     common_1.Get('getUserPreferences'),
     __param(0, common_1.Query()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], AppController.prototype, "getUserPreferences", null);
+], ComponenteController.prototype, "getUserPreferences", null);
 __decorate([
     common_1.Get('cookieScan'),
     __param(0, common_1.Query()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], AppController.prototype, "CookieScan", null);
-AppController = __decorate([
+], ComponenteController.prototype, "CookieScan", null);
+ComponenteController = __decorate([
     common_1.Controller(),
-    __metadata("design:paramtypes", [app_service_1.AppService,
+    __metadata("design:paramtypes", [componente_service_1.ComponenteService,
         cookieScan_service_1.CookieScan,
         usuario_service_1.UsuarioService])
-], AppController);
-exports.AppController = AppController;
-//# sourceMappingURL=app.controller.js.map
+], ComponenteController);
+exports.ComponenteController = ComponenteController;
+//# sourceMappingURL=componente.controller.js.map
