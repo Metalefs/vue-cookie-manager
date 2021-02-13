@@ -66,7 +66,7 @@ import Settings from './components/Settings.vue';
 import PrivacyPolicy from './components/PrivacyPolicy.vue';
 import CookieDeclaration from './components/CookieDeclaration.vue';
 import DataRequestForm from './components/DataRequestForm.vue';
-import * as service from "./services/lgpg.service";
+import * as service from "./services/componente.service";
 import { getAllCookies } from './services/cookie.service';
 
 @Component({
@@ -115,19 +115,19 @@ export default class App extends Vue {
   }
  
   mounted(){
-    service.getTextoBarraComponente().then(x=>{
+    service.getTextoBarraComponente().then((x):any=>{
       this.TextoBarra = x.data;
     });
-    service.getVisaoGeralDePrivacidade().then(x=>{
+    service.getVisaoGeralDePrivacidade().then((x):any=>{
       this.TextoVisaoGeral = x.data.substring(0,445)+"...";
     });
-    service.getCookieDeclaration().then(x=>{
+    service.getCookieDeclaration().then((x):any=>{
       this.TextoCookie = x.data;
     });
-    service.getPrivacyPolicy().then(x=>{
+    service.getPrivacyPolicy().then((x):any=>{
       this.TextoPrivacy = x.data;
     });
-    getAllCookies().then(x=>{
+    getAllCookies().then((x):any=>{
       this.cookies = x;
     });
   }

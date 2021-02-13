@@ -1,3 +1,5 @@
+import { PreferenciasComponente } from "./PreferenciasComponente.interface";
+
 export interface ClienteComponente{
     identificador:string;
     email:string;
@@ -6,6 +8,7 @@ export interface ClienteComponente{
     statusAtivacao:StatusAtivacaoCliente;
     dominios:DominioCliente[];
     chaveAPI:string;
+    preferencias: PreferenciasComponente;
 }
 
 export enum StatusAtivacaoCliente{
@@ -15,4 +18,21 @@ export enum StatusAtivacaoCliente{
 
 export interface DominioCliente{
     endereco:string;
+    cookies?: CustomCookie[]
+}
+
+export interface CustomCookie{
+    ativo : boolean,
+    name: string,
+    value: string,
+    domain: string,
+    path: string,
+    expires: number,
+    size: number,
+    httpOnly: boolean,
+    secure: boolean,
+    session: boolean,
+    sameSite?: string,
+    priority: string,
+    sameParty: boolean
 }

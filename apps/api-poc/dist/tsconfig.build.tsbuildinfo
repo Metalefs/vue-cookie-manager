@@ -1182,8 +1182,8 @@
         "affectsGlobalScope": false
       },
       "../../../libs/shared/src/interfaces/ClienteComponente.interface.ts": {
-        "version": "8f590a76e9afc163a033b2995258719bdf344d2e8716e62d54246057107e54f9",
-        "signature": "1adfab28bef73b0319723f466c73158d76e91e4399ea0a4bf776f16fe5b46504",
+        "version": "c17785e28e07f4ae86538279357d59f4ed605592e8c279042bb801325e51e238",
+        "signature": "41b5bdbb6282d7ad7118d74c5d8c4e26a6617bb952cf70f5e823f4df4ee9de86",
         "affectsGlobalScope": false
       },
       "../../../libs/shared/src/interfaces/index.ts": {
@@ -1202,7 +1202,7 @@
         "affectsGlobalScope": false
       },
       "../src/services/usuario.service.ts": {
-        "version": "f707a7f9200ac95ea507349e98517f802bc626012040f260264a9e03716848ea",
+        "version": "18360e265b8bdbce832a79a9cd0c12d9d3cb39a65c6eccc692c763013a81e28b",
         "signature": "219a48022f546f374094981996ab7f6bf3384d024e39810b2dda4c31a757bf0a",
         "affectsGlobalScope": false
       },
@@ -1682,8 +1682,8 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/cliente.controller.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "version": "9c1fed0c7d89d4835adbcb023b4baa5f958ed33ce8b1a6444dd12ecc0411e887",
+        "signature": "88f9d2cf7b1fc46d5d376d31862f5b1fbf4fbfdaf5754d190f681c7ec8f6b2da",
         "affectsGlobalScope": false
       },
       "../src/controllers/portnet.controller.ts": {
@@ -3285,6 +3285,11 @@
         "../src/services/cookieScan.service.ts",
         "../src/services/usuario.service.ts"
       ],
+      "../src/controllers/cliente.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/services/cookieScan.service.ts",
+        "../src/services/usuario.service.ts"
+      ],
       "../src/controllers/componente.controller.ts": [
         "../../../libs/shared/src/interfaces/index.ts",
         "../node_modules/@nestjs/common/index.d.ts",
@@ -3306,6 +3311,9 @@
       ],
       "../src/services/usuario.service.ts": [
         "../../../libs/shared/src/interfaces/index.ts"
+      ],
+      "../../../libs/shared/src/interfaces/ClienteComponente.interface.ts": [
+        "../../../libs/shared/src/interfaces/PreferenciasComponente.interface.ts"
       ],
       "../../../libs/shared/src/interfaces/index.ts": [
         "../../../libs/shared/src/interfaces/ClienteComponente.interface.ts",
@@ -4599,6 +4607,10 @@
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
       ],
+      "../src/controllers/cliente.controller.ts": [
+        "../src/services/cookieScan.service.ts",
+        "../src/services/usuario.service.ts"
+      ],
       "../src/controllers/componente.controller.ts": [
         "../../../libs/shared/src/interfaces/index.ts",
         "../src/services/componente.service.ts",
@@ -4614,6 +4626,9 @@
       ],
       "../src/services/usuario.service.ts": [
         "../../../libs/shared/src/interfaces/index.ts"
+      ],
+      "../../../libs/shared/src/interfaces/ClienteComponente.interface.ts": [
+        "../../../libs/shared/src/interfaces/PreferenciasComponente.interface.ts"
       ],
       "../../../libs/shared/src/interfaces/index.ts": [
         "../../../libs/shared/src/interfaces/ClienteComponente.interface.ts",
