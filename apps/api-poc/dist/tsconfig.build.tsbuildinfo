@@ -1182,8 +1182,8 @@
         "affectsGlobalScope": false
       },
       "../../../libs/shared/src/interfaces/ClienteComponente.interface.ts": {
-        "version": "c17785e28e07f4ae86538279357d59f4ed605592e8c279042bb801325e51e238",
-        "signature": "41b5bdbb6282d7ad7118d74c5d8c4e26a6617bb952cf70f5e823f4df4ee9de86",
+        "version": "1c45c16145ce0f53138f642c7ba0ee0652fc22f3d364270f248fe31117835f04",
+        "signature": "bba2ee45fe247c908ae49a8c20a4599658912b0039753c956e6f35a557c7c3d7",
         "affectsGlobalScope": false
       },
       "../../../libs/shared/src/interfaces/index.ts": {
@@ -1192,23 +1192,18 @@
         "affectsGlobalScope": false
       },
       "../src/services/componente.service.ts": {
-        "version": "e8218d1582aefe9ac65444557a69e2cf697727cb3f514b173336b4832b875599",
+        "version": "e25431dc231a77585556054b3c4d616cf26fffbe2ffe8b666b1d3aff7353b147",
         "signature": "db6c3c21a41bef1618f5120137a163286ba66c925213be93ea507e4684441cc2",
         "affectsGlobalScope": false
       },
-      "../src/services/cookieScan.service.ts": {
-        "version": "13a59c9cfde9a3a667ce8a708e476c658e0c257ffbfddb0545e322a8afd9537a",
-        "signature": "032f95e48b69ccf4f4b70534968dab5369d27f90dbfaa1fd008826cbdba4c405",
-        "affectsGlobalScope": false
-      },
       "../src/services/usuario.service.ts": {
-        "version": "18360e265b8bdbce832a79a9cd0c12d9d3cb39a65c6eccc692c763013a81e28b",
+        "version": "7a58671684f859aa7e7f4ebf6fd002ab61ac70fc82c7553d70d8e9c01f6cb58d",
         "signature": "219a48022f546f374094981996ab7f6bf3384d024e39810b2dda4c31a757bf0a",
         "affectsGlobalScope": false
       },
       "../src/controllers/componente.controller.ts": {
-        "version": "57890043e8af16390bd4868e39591d29d7e764c3bc7c00d1240dbdb6348bef56",
-        "signature": "45bb2a9898c8e28f5f2a45c0f2d5a5fe478f11c0da1b45ed432ee92860194da2",
+        "version": "45466b20cb0ddab197a893832a4c1b1ad471947fd29c9f6607c21fa9183019f3",
+        "signature": "33e210e851830fedaa69d6798a27dc4e519bdaf323a4cf8466354b8c53fbb637",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/globals.d.ts": {
@@ -1487,8 +1482,13 @@
         "affectsGlobalScope": false
       },
       "../src/middlewares/key.interceptor.ts": {
-        "version": "5e9de7c6d4651fc67370d8fbdb50e217fcf3eae92a302066d9e1f43f32f37381",
+        "version": "a49e025ec53c847d540f2773de4e3362838259f9740c60a198068843a9e09e78",
         "signature": "2f52fdad2a60bc618ad06f7d71ec18ca446e9bb25c7a9b03fa50bddd89ed6507",
+        "affectsGlobalScope": false
+      },
+      "../src/services/cookieScan.service.ts": {
+        "version": "1b170d0dbe34ec09d3e8f59b4a3b2730356d3cdd2860d814a80093d66d2a2b09",
+        "signature": "032f95e48b69ccf4f4b70534968dab5369d27f90dbfaa1fd008826cbdba4c405",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
@@ -1682,7 +1682,7 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/cliente.controller.ts": {
-        "version": "9c1fed0c7d89d4835adbcb023b4baa5f958ed33ce8b1a6444dd12ecc0411e887",
+        "version": "612bac9eaf847acc816422a60321dbfc28d175588bd094a530e27472161c2c21",
         "signature": "88f9d2cf7b1fc46d5d376d31862f5b1fbf4fbfdaf5754d190f681c7ec8f6b2da",
         "affectsGlobalScope": false
       },
@@ -3294,7 +3294,6 @@
         "../../../libs/shared/src/interfaces/index.ts",
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/services/componente.service.ts",
-        "../src/services/cookieScan.service.ts",
         "../src/services/usuario.service.ts"
       ],
       "../src/main.ts": [
@@ -4614,7 +4613,6 @@
       "../src/controllers/componente.controller.ts": [
         "../../../libs/shared/src/interfaces/index.ts",
         "../src/services/componente.service.ts",
-        "../src/services/cookieScan.service.ts",
         "../src/services/usuario.service.ts"
       ],
       "../src/middlewares/key.interceptor.ts": [

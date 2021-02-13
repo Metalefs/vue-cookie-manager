@@ -1,7 +1,7 @@
 <template>
     <div>
         <h4 class="cli-privacy-content-text"> Declaração de Uso de Cookies </h4>
-        <div class="cli-privacy-content-text" v-html="texto">
+        <div class="cli-privacy-content-text" v-html="Texto">
 
         </div>
     </div>
@@ -12,9 +12,9 @@
     import { Prop } from 'vue-property-decorator';
     @Component
     export default class CookieDeclaration extends Vue{
-        @Prop() readonly texto:string= "";
+        @Prop() readonly Texto:string= "";
     }
 </script>
 <style scoped>
-
+    @import "../../../assets/styles/Modal/index.scss";
 </style>

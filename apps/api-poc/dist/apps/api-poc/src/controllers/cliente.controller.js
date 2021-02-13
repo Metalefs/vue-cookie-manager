@@ -22,7 +22,8 @@ let ClienteController = class ClienteController {
         this.usuarioService = usuarioService;
     }
     async CookieScan(query) {
-        let Dominio = await (await this.usuarioService.ObterPorAPI_KEY(query.KEY)).dominios;
+        const Dominio = await (await this.usuarioService.ObterPorAPI_KEY(query.KEY))
+            .dominios;
         return await this.cookieScan.Scan(Dominio[0].endereco);
     }
 };

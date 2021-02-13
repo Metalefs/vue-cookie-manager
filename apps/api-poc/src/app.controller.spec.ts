@@ -16,7 +16,7 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      expect(appController.getCookieDeclaration()).toBe(!null);
+      expect(appController.getCookieDeclaration({ KEY: 123 })).toBe(!null);
     });
   });
 });

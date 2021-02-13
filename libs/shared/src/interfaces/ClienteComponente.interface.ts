@@ -23,11 +23,13 @@ export interface DominioCliente{
 
 export interface CustomCookie{
     ativo : boolean,
+    grupo?: GrupoCookie,
+    descricao?: string,
     name: string,
     value: string,
     domain: string,
     path: string,
-    expires: number,
+    expires: number | string,
     size: number,
     httpOnly: boolean,
     secure: boolean,
@@ -36,3 +38,15 @@ export interface CustomCookie{
     priority: string,
     sameParty: boolean
 }
+
+export interface GrupoPlugin {
+    identificador: string,
+    nome: string,
+    tipo: TipoGrupoPlugin
+}
+
+export enum TipoGrupoPlugin{
+
+}
+
+export interface GrupoCookie extends GrupoPlugin{}

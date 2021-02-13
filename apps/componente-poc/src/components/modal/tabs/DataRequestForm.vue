@@ -12,5 +12,5 @@
     }
 </script>
 <style scoped>
-
+   @import "../../../assets/styles/Modal/index.scss";
 </style>

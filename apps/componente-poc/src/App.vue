@@ -37,13 +37,13 @@
 
       <article slot="body" v-cloak>
         <section>
-          <Settings :textoVisaoGeralDePrivacidade="TextoVisaoGeral" :config="config" @skip="skip(1)"></Settings>
+          <Settings :Cookies="ComputedCookies" :textoVisaoGeralDePrivacidade="TextoVisaoGeral" :config="config" @skip="skip(1)"></Settings>
         </section>
         <section>
-          <PrivacyPolicy :Cookies="cookies" :texto="TextoPrivacy"></PrivacyPolicy>
+          <PrivacyPolicy  :Texto="TextoPrivacy"></PrivacyPolicy>
         </section>
         <section>
-          <CookieDeclaration :texto="TextoCookie"></CookieDeclaration>
+          <CookieDeclaration :Texto="TextoCookie"></CookieDeclaration>
         </section>
         <section>
           <DataRequestForm></DataRequestForm>
@@ -61,13 +61,15 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import Modal from './components/Modal.vue';
-import Settings from './components/Settings.vue';
-import PrivacyPolicy from './components/PrivacyPolicy.vue';
-import CookieDeclaration from './components/CookieDeclaration.vue';
-import DataRequestForm from './components/DataRequestForm.vue';
-import * as service from "./services/componente.service";
-import { getAllCookies } from './services/cookie.service';
+import Modal from './components/modal/Modal.vue';
+import Settings from './components/modal/tabs/Settings/Settings.vue';
+import PrivacyPolicy from './components/modal/tabs/PrivacyPolicy.vue';
+import CookieDeclaration from './components/modal/tabs/CookieDeclaration.vue';
+import DataRequestForm from './components/modal/tabs/DataRequestForm.vue';
+import * as service from "./core/services/componente.service";
+import { getAllCookies } from './core/services/cookies/cookie.service';
+import { CustomCookie } from '../../../libs/shared/src/interfaces';
+import moment from 'moment';
 
 @Component({
   components: {
@@ -83,7 +85,7 @@ export default class App extends Vue {
   private TextoCookieDeclaration:string = "";
   private TextoPrivacyPolicy:string = "";
   private TextoVisaoGeralDePrivacidade:string = "";
-  private cookies:{}[]= [];
+  private cookies:CustomCookie[] = [];
 
   modal: {
     isOpen:boolean,
@@ -127,9 +129,16 @@ export default class App extends Vue {
     service.getPrivacyPolicy().then((x):any=>{
       this.TextoPrivacy = x.data;
     });
-    getAllCookies().then((x):any=>{
-      this.cookies = x;
+    getAllCookies().then((x)=>{
+      this.ComputedCookies = x.data as CustomCookie[];
+      moment.locale('pt-br');
+
+      this.ComputedCookies.forEach(x=>{
+        x.expires = moment(x.expires as number * 1000).fromNow()
+      })
+      console.log(this.ComputedCookies)
     });
+    
   }
 
   get TextoBarra():string{
@@ -144,6 +153,9 @@ export default class App extends Vue {
   get TextoPrivacy():string{
     return this.TextoPrivacyPolicy;
   }
+  get ComputedCookies():CustomCookie[]{
+    return this.cookies;
+  }
   set TextoBarra(value:string){
     this.TextoBarraModal = value;
   }
@@ -155,6 +167,9 @@ export default class App extends Vue {
   }
   set TextoPrivacy(value:string){
     this.TextoPrivacyPolicy = value;
+  }
+  set ComputedCookies(value:CustomCookie[]){
+    this.cookies = value;
   }
 
   get isFirstStep(): boolean {
@@ -243,39 +258,39 @@ export default class App extends Vue {
 }
 </script>
 
-<style lang="scss">
- @import "./styles/App.scss";
-@keyframes blowUpModal {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    margin:auto;
-    transition: max-height 0.15s ease-out;
-    padding: 20px;
-    border-radius: .2rem;
-    &.out {
-      animation: blowUpModal .5s ease forwards;
-      display: none;
-      & > .modal-mask {
-        background: transparent;
+<style lang="scss" scoped>
+  @import "./assets/styles/App.scss";
+  @keyframes blowUpModal {
+      0% {
+        transform: scale(0);
       }
-
-      &.in {
-        transition: max-height 0.15s ease-out;
-        //animation: blowUpModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      100% {
+        transform: scale(1);
+      }
+    }
+  .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      margin:auto;
+      transition: max-height 0.15s ease-out;
+      padding: 20px;
+      border-radius: .2rem;
+      &.out {
         animation: blowUpModal .5s ease forwards;
+        display: none;
+        & > .modal-mask {
+          background: transparent;
+        }
+
+        &.in {
+          transition: max-height 0.15s ease-out;
+          //animation: blowUpModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+          animation: blowUpModal .5s ease forwards;
+        }
       }
-    }
-}
+  }
 </style>

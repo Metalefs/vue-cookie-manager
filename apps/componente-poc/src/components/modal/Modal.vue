@@ -59,10 +59,10 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../../assets/styles/Modal/index.scss";
   [v-cloak] {
     display: none;
   }
-
   .modal-wrapper {
     z-index: 999999;
     transform: scale(1);
@@ -114,7 +114,6 @@
     display: grid;
     margin:auto;
     &.in{
-
       transition: max-height 0.15s ease-out;
     }
     padding: 20px;
@@ -130,7 +129,7 @@
     }
     &-body{
       max-height: 50vh;
-      overflow-y: scroll;
+      overflow: hidden;
       position: relative;
       display: -ms-flexbox;
       display: flex;
@@ -154,8 +153,6 @@
     &-wrapper {
       position: relative;
       width: 65vw;
-      // max-width: 60em;
-      // min-width: 30em;
       max-height: 67vh;
       margin: auto;
       background: #fff;

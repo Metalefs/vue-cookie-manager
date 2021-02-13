@@ -23,46 +23,46 @@ let ComponenteService = class ComponenteService {
         return 'Nosso site utiliza cookies, inclusive de parceiros, para o correto funcionamento do site, melhorar a sua experiência de navegação e possibilitar o acesso aos nossos conteúdos. Clique abaixo para saber mais sobre os cookies que utilizamos. Ainda está com dúvida? Confira a nossa <a>Politica de Privacidade</a>';
     }
     getUserPreferences(userID) {
-        if (userID == "123") {
+        if (userID == '123') {
             return {
                 tabs: [
                     {
-                        titulo: "Configurações",
+                        titulo: 'Configurações',
                         posicao: 1,
                         ativo: true,
-                        funcao: index_1.FuncaoTabComponente.configuracaoCookie
+                        funcao: index_1.FuncaoTabComponente.configuracaoCookie,
                     },
                     {
-                        titulo: "Política de Privacidade",
+                        titulo: 'Política de Privacidade',
                         posicao: 2,
                         ativo: true,
-                        funcao: index_1.FuncaoTabComponente.politicaPrivacidade
+                        funcao: index_1.FuncaoTabComponente.politicaPrivacidade,
                     },
                     {
-                        titulo: "Declaração de Uso de Cookies",
+                        titulo: 'Declaração de Uso de Cookies',
                         posicao: 3,
                         ativo: true,
-                        funcao: index_1.FuncaoTabComponente.declaracaoUsoCookie
+                        funcao: index_1.FuncaoTabComponente.declaracaoUsoCookie,
                     },
                     {
-                        titulo: "Formulário de Requisição de Dados",
+                        titulo: 'Formulário de Requisição de Dados',
                         posicao: 4,
                         ativo: true,
-                        funcao: index_1.FuncaoTabComponente.formularioRequisicaoDados
-                    }
+                        funcao: index_1.FuncaoTabComponente.formularioRequisicaoDados,
+                    },
                 ],
-                UrlIconeBarra: "",
-                UrlPaginaPrivacidade: "",
+                UrlIconeBarra: '',
+                UrlPaginaPrivacidade: '',
                 tema: {
-                    corFundoBarra: "rgb(12, 12, 12)",
-                    corTextoBarra: "rgb(255, 255, 255)",
-                    corFundoBotaoBarra: "rgb(243, 96, 40)",
-                    corTextoBotaoBarra: "rgb(255, 255, 255)",
-                    corFundoModal: "#fff",
-                    corTextoModal: "#333",
-                    corFundoBotaoModal: "rgb(243, 96, 40)",
-                    corTextoBotaoModal: "rgb(255, 255, 255)"
-                }
+                    corFundoBarra: 'rgb(12, 12, 12)',
+                    corTextoBarra: 'rgb(255, 255, 255)',
+                    corFundoBotaoBarra: 'rgb(243, 96, 40)',
+                    corTextoBotaoBarra: 'rgb(255, 255, 255)',
+                    corFundoModal: '#fff',
+                    corTextoModal: '#333',
+                    corFundoBotaoModal: 'rgb(243, 96, 40)',
+                    corTextoBotaoModal: 'rgb(255, 255, 255)',
+                },
             };
         }
         throw 'erro';

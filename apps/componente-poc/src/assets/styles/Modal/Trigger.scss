@@ -855,23 +855,6 @@ background: #ffffff;
 .cli-modal a {
 	text-decoration: none;
 }
-// .cli-modal .cli-modal-dialog {
-// 	position: relative;
-// 	width: auto;
-// 	margin: .5rem;
-// 	pointer-events: none;
-// 	font-family: inherit;
-// 	font-size: 1rem;
-// 	font-weight: 400;
-// 	line-height: 1.5;
-// 	color: #212529;
-// 	text-align: left;
-// 	display: -ms-flexbox;
-// 	display: flex;
-// 	-ms-flex-align: center;
-// 	align-items: center;
-// 	min-height: calc(100% - (.5rem * 2))
-// }
 @media (min-width: 576px) {
 	.cli-modal .cli-modal-dialog {
 		max-width:500px;
@@ -879,20 +862,6 @@ background: #ffffff;
 		min-height: calc(100% - (1.75rem * 2))
 	}
 }
-// .cli-modal-content {
-// 	position: relative;
-// 	display: -ms-flexbox;
-// 	display: flex;
-// 	-ms-flex-direction: column;
-// 	flex-direction: column;
-// 	width: 100%;
-// 	pointer-events: auto;
-// 	background-color: #fff;
-// 	background-clip: padding-box;
-// 	border-radius: .2rem;
-// 	box-sizing: border-box;
-// 	outline: 0
-// }
 .cli-modal .row {
 	margin: 0 -15px;
 }

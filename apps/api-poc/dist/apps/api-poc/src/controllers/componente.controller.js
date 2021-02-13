@@ -15,12 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ComponenteController = void 0;
 const common_1 = require("@nestjs/common");
 const componente_service_1 = require("../services/componente.service");
-const cookieScan_service_1 = require("../services/cookieScan.service");
 const usuario_service_1 = require("../services/usuario.service");
 let ComponenteController = class ComponenteController {
-    constructor(componenteService, cookieScan, usuarioService) {
+    constructor(componenteService, usuarioService) {
         this.componenteService = componenteService;
-        this.cookieScan = cookieScan;
         this.usuarioService = usuarioService;
     }
     getTextoBarraComponente(query) {
@@ -36,12 +34,14 @@ let ComponenteController = class ComponenteController {
         return this.componenteService.getPrivacyPolicy();
     }
     async getUserPreferences(query) {
-        let UserID = await (await this.usuarioService.ObterPorAPI_KEY(query.KEY)).identificador;
+        const UserID = await (await this.usuarioService.ObterPorAPI_KEY(query.KEY))
+            .identificador;
         return this.componenteService.getUserPreferences(UserID);
     }
-    async CookieScan(query) {
-        let Dominio = await (await this.usuarioService.ObterPorAPI_KEY(query.KEY)).dominios[0];
-        return await this.cookieScan.Scan(Dominio.endereco);
+    async CookieScan(req) {
+        const key = req.headers['component-key'];
+        return await (await this.usuarioService.ObterPorAPI_KEY(key)).dominios[0]
+            .cookies;
     }
 };
 __decorate([
@@ -81,7 +81,7 @@ __decorate([
 ], ComponenteController.prototype, "getUserPreferences", null);
 __decorate([
     common_1.Get('cookieScan'),
-    __param(0, common_1.Query()),
+    __param(0, common_1.Req()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
@@ -89,7 +89,6 @@ __decorate([
 ComponenteController = __decorate([
     common_1.Controller(),
     __metadata("design:paramtypes", [componente_service_1.ComponenteService,
-        cookieScan_service_1.CookieScan,
         usuario_service_1.UsuarioService])
 ], ComponenteController);
 exports.ComponenteController = ComponenteController;

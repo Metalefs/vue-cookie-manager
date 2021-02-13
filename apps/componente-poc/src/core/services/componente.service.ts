@@ -1,4 +1,4 @@
-import Http from './http'; // não precisa de .js
+import Http from './connection/http'; 
 
 export const getTextoBarraComponente = (page = 0, extraParams = {}) => {
   const params = { page, ...extraParams }; 

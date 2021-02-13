@@ -4,24 +4,37 @@
     height: 100%;
     display: flex;
     flex-direction: var(--axis, row);
-    overflow: hidden;
+    overflow-x: hidden;
     text-align: left;
   }
   section {
     width: 100%;
     visibility: hidden;
     flex: 0 0 100%;
-    padding: 2em;
-    overflow: auto;
+    padding: .9em 2em 2em 2em;
+    overflow-y: scroll;
+
+    /* for custom scrollbar for webkit browser*/
+      
+    &::-webkit-scrollbar {
+      width: 6px;
+    } 
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    } 
+    &::-webkit-scrollbar-thumb {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    }
     will-change: transform;
     transform: translate(var(--x, 0%), var(--y, 0%));
     transition: transform 100ms ease-out;
     transition: sizeUP  300ms ease reverse;
     position: relative;
     
-      
+    margin-top: 0;
     h2,h3,h4 {
-      margin-top: 0;
+      margin-top: 0 !important;
+      font-weight: 600;
     }
     &.current {
       visibility: visible;

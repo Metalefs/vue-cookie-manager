@@ -4,57 +4,57 @@ exports.UsuarioService = void 0;
 const index_1 = require("../../../../libs/shared/src/interfaces/index");
 class UsuarioService {
     async ObterPorAPI_KEY(KEY) {
-        console.log('quKEYery:', KEY);
-        if (KEY == "234")
+        console.log('KEY:', KEY);
+        if (KEY == '234')
             return {
-                identificador: "123",
-                email: "teste@teste.com.br",
-                cpf: "12312312312",
-                nome: "teste",
+                identificador: '123',
+                email: 'teste@teste.com.br',
+                cpf: '12312312312',
+                nome: 'teste',
                 statusAtivacao: index_1.StatusAtivacaoCliente.ativo,
                 preferencias: {
                     tabs: [
                         {
-                            titulo: "Configurações",
+                            titulo: 'Configurações',
                             posicao: 1,
                             ativo: true,
-                            funcao: index_1.FuncaoTabComponente.configuracaoCookie
+                            funcao: index_1.FuncaoTabComponente.configuracaoCookie,
                         },
                         {
-                            titulo: "Política de Privacidade",
+                            titulo: 'Política de Privacidade',
                             posicao: 2,
                             ativo: true,
-                            funcao: index_1.FuncaoTabComponente.politicaPrivacidade
+                            funcao: index_1.FuncaoTabComponente.politicaPrivacidade,
                         },
                         {
-                            titulo: "Declaração de Uso de Cookies",
+                            titulo: 'Declaração de Uso de Cookies',
                             posicao: 3,
                             ativo: true,
-                            funcao: index_1.FuncaoTabComponente.declaracaoUsoCookie
+                            funcao: index_1.FuncaoTabComponente.declaracaoUsoCookie,
                         },
                         {
-                            titulo: "Formulário de Requisição de Dados",
+                            titulo: 'Formulário de Requisição de Dados',
                             posicao: 4,
                             ativo: true,
-                            funcao: index_1.FuncaoTabComponente.formularioRequisicaoDados
-                        }
+                            funcao: index_1.FuncaoTabComponente.formularioRequisicaoDados,
+                        },
                     ],
-                    UrlIconeBarra: "",
-                    UrlPaginaPrivacidade: "",
+                    UrlIconeBarra: '',
+                    UrlPaginaPrivacidade: '',
                     tema: {
-                        corFundoBarra: "rgb(12, 12, 12)",
-                        corTextoBarra: "rgb(255, 255, 255)",
-                        corFundoBotaoBarra: "rgb(243, 96, 40)",
-                        corTextoBotaoBarra: "rgb(255, 255, 255)",
-                        corFundoModal: "#fff",
-                        corTextoModal: "#333",
-                        corFundoBotaoModal: "rgb(243, 96, 40)",
-                        corTextoBotaoModal: "rgb(255, 255, 255)"
-                    }
+                        corFundoBarra: 'rgb(12, 12, 12)',
+                        corTextoBarra: 'rgb(255, 255, 255)',
+                        corFundoBotaoBarra: 'rgb(243, 96, 40)',
+                        corTextoBotaoBarra: 'rgb(255, 255, 255)',
+                        corFundoModal: '#fff',
+                        corTextoModal: '#333',
+                        corFundoBotaoModal: 'rgb(243, 96, 40)',
+                        corTextoBotaoModal: 'rgb(255, 255, 255)',
+                    },
                 },
                 dominios: [
                     {
-                        endereco: "meusite.com.br",
+                        endereco: 'meusite.com.br',
                         cookies: [
                             {
                                 name: 'prov',
@@ -68,7 +68,7 @@ class UsuarioService {
                                 secure: false,
                                 session: false,
                                 priority: 'Medium',
-                                sameParty: false
+                                sameParty: false,
                             },
                             {
                                 name: '_ga',
@@ -82,7 +82,7 @@ class UsuarioService {
                                 secure: false,
                                 session: false,
                                 priority: 'Medium',
-                                sameParty: false
+                                sameParty: false,
                             },
                             {
                                 name: '_gid',
@@ -96,7 +96,7 @@ class UsuarioService {
                                 secure: false,
                                 session: false,
                                 priority: 'Medium',
-                                sameParty: false
+                                sameParty: false,
                             },
                             {
                                 name: 'UID',
@@ -111,7 +111,7 @@ class UsuarioService {
                                 session: false,
                                 sameSite: 'None',
                                 priority: 'Medium',
-                                sameParty: false
+                                sameParty: false,
                             },
                             {
                                 name: 'UIDR',
@@ -126,7 +126,7 @@ class UsuarioService {
                                 session: false,
                                 sameSite: 'None',
                                 priority: 'Medium',
-                                sameParty: false
+                                sameParty: false,
                             },
                             {
                                 name: '_gat',
@@ -140,7 +140,7 @@ class UsuarioService {
                                 secure: false,
                                 session: false,
                                 priority: 'Medium',
-                                sameParty: false
+                                sameParty: false,
                             },
                             {
                                 name: 'mc',
@@ -155,12 +155,12 @@ class UsuarioService {
                                 session: false,
                                 sameSite: 'None',
                                 priority: 'Medium',
-                                sameParty: false
-                            }
-                        ]
-                    }
+                                sameParty: false,
+                            },
+                        ],
+                    },
                 ],
-                chaveAPI: "234",
+                chaveAPI: '234',
             };
         throw { erro: 'Chave de acesso inválida' };
     }

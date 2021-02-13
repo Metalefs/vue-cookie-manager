@@ -1,7 +1,7 @@
 <template>
     <div>
         <h4> Politica de Privacidade </h4>
-        <div class="cli-privacy-content-text" v-html="texto"></div>
+        <div class="cli-privacy-content-text" v-html="Texto"></div>
     </div>
 </template>
 <script lang="ts">
@@ -10,9 +10,9 @@
     import { Prop } from 'vue-property-decorator';
     @Component
     export default class PrivacyPolicy extends Vue{
-      @Prop() readonly texto:string= "";
+      @Prop() readonly Texto:string= "";
     }
 </script>
 <style scoped>
-
+    @import "../../../assets/styles/Modal/index.scss";
 </style>
