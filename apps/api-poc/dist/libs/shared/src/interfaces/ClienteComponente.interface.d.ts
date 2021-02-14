@@ -35,11 +35,15 @@ export interface CustomCookie {
     sameParty: boolean;
 }
 export interface GrupoPlugin {
-    identificador: string;
     nome: string;
     tipo: TipoGrupoPlugin;
 }
 export declare enum TipoGrupoPlugin {
+    Advertising = 0,
+    SocialMedia = 1,
+    Analytics = 2,
+    CostumerInteraction = 3,
+    Essential = 4
 }
 export interface GrupoCookie extends GrupoPlugin {
 }

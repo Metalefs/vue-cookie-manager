@@ -121,7 +121,7 @@ export default class App extends Vue {
       this.TextoBarra = x.data;
     });
     service.getVisaoGeralDePrivacidade().then((x):any=>{
-      this.TextoVisaoGeral = x.data.substring(0,445)+"...";
+      this.TextoVisaoGeral = x.data.length >= 445? x.data.substring(0,445)+"..." : x.data;
     });
     service.getCookieDeclaration().then((x):any=>{
       this.TextoCookie = x.data;
@@ -274,7 +274,7 @@ export default class App extends Vue {
       left: 0;
       width: 100vw;
       height: 100vh;
-      display: grid;
+      
       margin:auto;
       transition: max-height 0.15s ease-out;
       padding: 20px;

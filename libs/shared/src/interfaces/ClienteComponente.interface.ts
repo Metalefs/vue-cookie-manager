@@ -40,13 +40,16 @@ export interface CustomCookie{
 }
 
 export interface GrupoPlugin {
-    identificador: string,
     nome: string,
     tipo: TipoGrupoPlugin
 }
 
 export enum TipoGrupoPlugin{
-
+    Advertising,
+    SocialMedia,
+    Analytics,
+    CostumerInteraction,
+    Essential
 }
 
 export interface GrupoCookie extends GrupoPlugin{}

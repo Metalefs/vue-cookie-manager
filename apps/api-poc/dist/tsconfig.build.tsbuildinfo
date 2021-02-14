@@ -1182,8 +1182,8 @@
         "affectsGlobalScope": false
       },
       "../../../libs/shared/src/interfaces/ClienteComponente.interface.ts": {
-        "version": "1c45c16145ce0f53138f642c7ba0ee0652fc22f3d364270f248fe31117835f04",
-        "signature": "bba2ee45fe247c908ae49a8c20a4599658912b0039753c956e6f35a557c7c3d7",
+        "version": "3e599a7f8d88899d638592c2b575ac6ae2452df1e73d744fddaa4060fbe7ec67",
+        "signature": "f3c2b7992f5a9bccb481cb102cc0afa3e02f4aa36fe4c738c6947f064d838e85",
         "affectsGlobalScope": false
       },
       "../../../libs/shared/src/interfaces/index.ts": {
@@ -1192,17 +1192,17 @@
         "affectsGlobalScope": false
       },
       "../src/services/componente.service.ts": {
-        "version": "e25431dc231a77585556054b3c4d616cf26fffbe2ffe8b666b1d3aff7353b147",
+        "version": "c040a0b289795b04755b421125dce91625a09d183a6a38cdf5e4ef4fe810cdea",
         "signature": "db6c3c21a41bef1618f5120137a163286ba66c925213be93ea507e4684441cc2",
         "affectsGlobalScope": false
       },
       "../src/services/usuario.service.ts": {
-        "version": "7a58671684f859aa7e7f4ebf6fd002ab61ac70fc82c7553d70d8e9c01f6cb58d",
+        "version": "1f612d4c29111c6e12d8e7019243ca6750fc4b7fa70dcf2e5d65015972ffd7d5",
         "signature": "219a48022f546f374094981996ab7f6bf3384d024e39810b2dda4c31a757bf0a",
         "affectsGlobalScope": false
       },
       "../src/controllers/componente.controller.ts": {
-        "version": "45466b20cb0ddab197a893832a4c1b1ad471947fd29c9f6607c21fa9183019f3",
+        "version": "8dbd386d001873217c2514c316ec5f87151262ae121046cddc4ed0c5ac02fddd",
         "signature": "33e210e851830fedaa69d6798a27dc4e519bdaf323a4cf8466354b8c53fbb637",
         "affectsGlobalScope": false
       },
@@ -1482,7 +1482,7 @@
         "affectsGlobalScope": false
       },
       "../src/middlewares/key.interceptor.ts": {
-        "version": "a49e025ec53c847d540f2773de4e3362838259f9740c60a198068843a9e09e78",
+        "version": "5e9de7c6d4651fc67370d8fbdb50e217fcf3eae92a302066d9e1f43f32f37381",
         "signature": "2f52fdad2a60bc618ad06f7d71ec18ca446e9bb25c7a9b03fa50bddd89ed6507",
         "affectsGlobalScope": false
       },

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h4> Politica de Privacidade </h4>
+        <h4 class="cli-privacy-content-text"> Politica de Privacidade </h4>
         <div class="cli-privacy-content-text" v-html="Texto"></div>
     </div>
 </template>

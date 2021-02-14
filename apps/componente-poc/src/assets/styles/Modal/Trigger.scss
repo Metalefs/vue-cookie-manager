@@ -1129,12 +1129,11 @@ color:inherit;
     padding-top: 12px;
 }
 .cli-tab-container p ,.cli-privacy-content-text{
-    font-size: 14px;
     line-height: 1.4;
     margin-top: 0;
     padding: 0;
-    color: #000;
 }
+
 .wt-cli-privacy
 {
     display:none;
@@ -1367,6 +1366,11 @@ a.wt-cli-ccpa-opt-out {
 }
 .wt-cli-necessary-checkbox {
     display: none !important;
+}
+@media (max-width: 440px) {
+    .cli-privacy-content-text{
+        font-size: 14px;
+    }
 }
 @media (max-width: 985px) {
     .cli-style-v2 .cli-bar-message

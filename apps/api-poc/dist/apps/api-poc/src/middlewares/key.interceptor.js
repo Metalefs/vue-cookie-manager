@@ -10,6 +10,7 @@ exports.KeyInterceptor = void 0;
 const common_1 = require("@nestjs/common");
 let KeyInterceptor = class KeyInterceptor {
     use(req, res, next) {
+        console.log(req.headers);
         next();
     }
 };
