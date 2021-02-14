@@ -20,8 +20,8 @@
       
       "dev:componente:start": "cd apps/componente-poc && npm run serve",
       "dev:componente:build": "cd apps/componente-poc && npm run build",
-      "dev:consumidor:start": "cd apps/consumidor-poc && npm run serve",
-      "dev:consumidor:build": "cd apps/consumidor-poc && npm run build",
+      "dev:visitante:start": "cd apps/visitante-poc && npm run serve",
+      "dev:visitante:build": "cd apps/visitante-poc && npm run build",
     
       "dev:nest:build": "cd apps/api-poc && npm run build",
       "dev:nest:start": "cd apps/api-poc && npm run start:dev",
