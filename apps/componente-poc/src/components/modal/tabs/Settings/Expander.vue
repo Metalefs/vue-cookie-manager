@@ -1,29 +1,29 @@
 <template>
     <div class="Expander" :class="{'active' :open}" >
         <div class="Expander__trigger" 
-            
+         @click="open = !open"
             :class="open ? 'active':'beforeBorder'">
-            <svg @click="open = !open" 
-            class="Expander__trigger-Icon" 
-            :class="{'open' :open}" 
-            width="40" height="12" 
-            stroke="#4a6e78">
-                <polyline points="12,2 20,10 28,2" stroke-width="1" fill="none"></polyline>
-            </svg>
-            <a class="Expander__title" @click="open = !open">
-                {{ title }}
-                <span>{{ative?"habilitado":"desabilitado"}}</span>
-            </a>
-            <VueToggles
-                    @click="ToogleActive()"
-                    :value="active"
-                    height="20"
-                    width="38"
-                    checkedText=""
-                    uncheckedText=""
-                    checkedBg="#28a745"
-                    uncheckedBg="#e3e1e8"
-                />
+            <div class="Expander__trigger_in">
+                <a class="Expander__title" >
+                    {{ title }}
+                </a>
+            </div>
+            <div class="Expander__trigger_action" >
+                <label :for="title">{{active?"habilitado":"desabilitado"}}</label>
+                <button @click.stop="ToogleActive()"
+                    :id="title">
+                <VueToggles
+                        
+                        :value="active"
+                        height="20"
+                        width="38"
+                        checkedText=""
+                        uncheckedText=""
+                        checkedBg="#28a745"
+                        uncheckedBg="#e3e1e8"
+                    />
+                </button>
+            </div>
         </div>
         <transition :name="animation">
             <div class="Expander__body" v-show="open">
@@ -46,14 +46,15 @@
         }
     })
     export default class Expander extends Vue{
-        @Prop({default: ""}) readonly Title:string = "";
+        @Prop({default: ""}) readonly Title:string;
         @Prop({default: false})Active:boolean;
-        @Prop({default: "bottomToTop"}) readonly Animation:string = "";
+        @Prop({default: "bottomToTop"}) readonly Animation:string;
         Open:boolean = false;
         @Emit('toogleActive')
         ToogleActive(){
+            
             this.active = !this.active ;
-            return {name:this.Title,active:this.Active}
+            return {name:this.Title,active:this.active}
         }
 
         get title():string{

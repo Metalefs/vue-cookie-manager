@@ -3,7 +3,7 @@
 }
 .cookie-table-wrap{
   max-width: 1140px;
-  overflow: hidden;
+  // overflow-y: scroll;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   max-height: 300px;
@@ -61,6 +61,21 @@
     overflow-x:auto;
     margin-top: 0px;
     border: 1px solid rgba(255,255,255,0.3);
+    &::-webkit-scrollbar {
+      width: 6px;
+      opacity: 0;
+      visibility: hidden;
+    } 
+    &::-webkit-scrollbar-track {
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+    } 
+    &::-webkit-scrollbar-thumb {
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
   }
   th{
     padding: 20px 15px;
@@ -73,7 +88,6 @@
   }
   tr{
     
-    max-height: 300px;
   }
   td{
     padding: 7px 8px;

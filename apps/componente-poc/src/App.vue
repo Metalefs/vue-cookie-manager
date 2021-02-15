@@ -259,47 +259,5 @@ export default class App extends Vue {
 
 <style lang="scss" scoped>
   @import "./assets/styles/App.scss";
-  @keyframes blowUpModal {
-      0% {
-        transform: scale(0);
-      }
-      100% {
-        transform: scale(1);
-      }
-  }
-  @keyframes blowUpModalBackwards {
-      0% {
-        transform: scale(1);
-      }
-      100% {
-        transform: scale(0);
-        display: none;
-      }
-  }
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    
-    margin:auto;
-    transition: max-height 0.15s ease-out;
-    padding: 20px;
-    border-radius: .2rem;
-
-    &.in {
-      transition: max-height 0.15s ease-out;
-      animation: blowUpModal .5s ease forwards;
-      height: 100vh;
-    }
-    &.out {
-      animation: blowUpModalBackwards .5s ease forwards !important;
-      & > .modal-mask {
-        background: transparent;
-      }
-      transition: height 1s ease forwards;
-      display: none;
-    }
-  }
+  
 </style>

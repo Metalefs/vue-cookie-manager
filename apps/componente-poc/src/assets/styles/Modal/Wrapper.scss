@@ -34,8 +34,8 @@
     
     margin-top: 0;
     h2,h3,h4 {
-      margin-top: 0 !important;
-      font-weight: 600;
+      margin-top: 15px;
+      font-weight: 500;
     }
     &.current {
       visibility: visible;
@@ -65,4 +65,8 @@
     min-width: 173px;
     border: 0;
   }
-  
+  @media only screen and (max-width: 660px){
+    section{
+      padding:10px 5px;
+    }
+  }
