@@ -43,7 +43,8 @@ export declare enum TipoGrupoPlugin {
     SocialMedia = 1,
     Analytics = 2,
     CostumerInteraction = 3,
-    Essential = 4
+    Essential = 4,
+    Undefined = 5
 }
 export interface GrupoCookie extends GrupoPlugin {
 }

@@ -10,11 +10,11 @@ export function getAllCurrentDomainCookies():Promise<{name:String,value:string}[
     })
 }
 
-export const getAllCookies = (KEY = "234", extraParams = {}) => {
-    const params = { KEY, ...extraParams }; 
+export const getAllCookies = ( extraParams = {}) => {
+    const params = { ...extraParams }; 
     
     return Http.get<CustomCookie[]>('/cookieScan', { params });
-};
+}
 
 export const deleteCookies = () =>{
     localStorage.setItem("save-cookies",document.cookie);
@@ -26,6 +26,6 @@ export const deleteCookies = () =>{
 
 export const resetCookies = () =>{
     let savedCookie = localStorage.getItem("save-cookies");
-    if(savedCookie?.includes)
+    if(savedCookie)
     document.cookie = localStorage.getItem("save-cookies")||'';
 }

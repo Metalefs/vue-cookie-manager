@@ -17,6 +17,19 @@
 	font-weight:300;
     box-shadow: 0 -1px 10px 0 rgba(172, 171, 171, 0.3);
     width: 100%;
+    bottom:-100px;
+    padding: 10px 30px 25px 40px;
+    animation:from_bottom 2s ease forwards;
+}
+@keyframes from_bottom{
+    from {
+        height: 0;
+        bottom:-100px;
+    }
+    to{
+        height: auto;
+        bottom:0px;
+    }
 }
 #cookie-law-info-again {
 	font-size: 10pt;

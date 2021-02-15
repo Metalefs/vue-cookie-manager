@@ -49,7 +49,8 @@ export enum TipoGrupoPlugin{
     SocialMedia,
     Analytics,
     CostumerInteraction,
-    Essential
+    Essential,
+    Undefined
 }
 
 export interface GrupoCookie extends GrupoPlugin{}

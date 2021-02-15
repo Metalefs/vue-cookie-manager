@@ -76,6 +76,10 @@ export class UsuarioService {
                 session: false,
                 priority: 'Medium',
                 sameParty: false,
+                grupo: {
+                  nome: 'Indefinido',
+                  tipo: TipoGrupoPlugin.Undefined,
+                },
               },
               {
                 name: '_ga',
@@ -90,6 +94,10 @@ export class UsuarioService {
                 session: false,
                 priority: 'Medium',
                 sameParty: false,
+                grupo: {
+                  nome: 'Indefinido',
+                  tipo: TipoGrupoPlugin.Undefined,
+                },
                 descricao:
                   'Este nome de cookie está associado ao Google Universal Analytics - que é uma atualização significativa para o serviço de análise mais comumente usado do Google. Este cookie é usado para distinguir usuários únicos atribuindo um número gerado aleatoriamente como um identificador de cliente. Ele é incluído em cada solicitação de página in Por padrão, ele é definido para expirar após 2 anos, embora seja personalizável pelos proprietários de sites da Web. Um site e usado para calcular dados de visitantes, sessões e campanhas para os relatórios de análise de sites.',
               },
@@ -106,6 +114,10 @@ export class UsuarioService {
                 session: false,
                 priority: 'Medium',
                 sameParty: false,
+                grupo: {
+                  nome: 'Indefinido',
+                  tipo: TipoGrupoPlugin.Undefined,
+                },
                 descricao:
                   'Este nome de cookie está associado ao Google Analytics. É usado pelos scripts gtag.js e analytics.js e, de acordo com o Google Analytics, esse cookie é usado para distinguir os usuários.',
               },
@@ -179,6 +191,10 @@ export class UsuarioService {
                 sameSite: 'None',
                 priority: 'Medium',
                 sameParty: false,
+                grupo: {
+                  nome: 'Indefinido',
+                  tipo: TipoGrupoPlugin.Undefined,
+                },
               },
             ],
           },

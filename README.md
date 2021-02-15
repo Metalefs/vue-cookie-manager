@@ -18,7 +18,7 @@ DO COMPONENTE:
   
   - GESTOR DE COOKIE:
   
-    - Salvar cookies ativos para o cliente através de chave de API.
+    - Salvar consentimendo do usuário para cookies do cliente através de chave de API.
     
     - Verificar tags dos scripts (alterada pelo cliente) para identificar plugins de rastreamento.
     

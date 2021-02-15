@@ -16,7 +16,7 @@
       </span>
     </div>
 
-    <modal :class="modal.isOpen ? '' : 'out'" :has-mask="modal.hasMask" :can-click-mask="modal.canClickMask" :has-x="modal.hasX" @toggle="toggleModal">
+    <modal :class="modal.isOpen ? 'in' : 'out'" :has-mask="modal.hasMask" :can-click-mask="modal.canClickMask" :has-x="modal.hasX" @toggle="toggleModal">
 
       <div class="tabs" slot="header">
         <ul class="lg" slot="header">
@@ -232,7 +232,6 @@ export default class App extends Vue {
     this.$el.style.setProperty('--axis-reverse', this.axisReverse)
     this.$el.style.setProperty('--cross', this.cross)
     this.$el.style.setProperty('--cross-reverse', this.crossReverse)
-    // this.$el.style.setProperty('--vision', this.xray)
   }
   currentSection:any;
   goToStep(step:number){
@@ -267,30 +266,40 @@ export default class App extends Vue {
       100% {
         transform: scale(1);
       }
-    }
-  .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      
-      margin:auto;
-      transition: max-height 0.15s ease-out;
-      padding: 20px;
-      border-radius: .2rem;
-      &.out {
-        animation: blowUpModal .5s ease forwards;
-        display: none;
-        & > .modal-mask {
-          background: transparent;
-        }
-
-        &.in {
-          transition: max-height 0.15s ease-out;
-          //animation: blowUpModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-          animation: blowUpModal .5s ease forwards;
-        }
+  }
+  @keyframes blowUpModalBackwards {
+      0% {
+        transform: scale(1);
       }
+      100% {
+        transform: scale(0);
+        display: none;
+      }
+  }
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    margin:auto;
+    transition: max-height 0.15s ease-out;
+    padding: 20px;
+    border-radius: .2rem;
+
+    &.in {
+      transition: max-height 0.15s ease-out;
+      animation: blowUpModal .5s ease forwards;
+      height: 100vh;
+    }
+    &.out {
+      animation: blowUpModalBackwards .5s ease forwards !important;
+      & > .modal-mask {
+        background: transparent;
+      }
+      transition: height 1s ease forwards;
+      display: none;
+    }
   }
 </style>

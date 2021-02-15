@@ -13,5 +13,6 @@ var TipoGrupoPlugin;
     TipoGrupoPlugin[TipoGrupoPlugin["Analytics"] = 2] = "Analytics";
     TipoGrupoPlugin[TipoGrupoPlugin["CostumerInteraction"] = 3] = "CostumerInteraction";
     TipoGrupoPlugin[TipoGrupoPlugin["Essential"] = 4] = "Essential";
+    TipoGrupoPlugin[TipoGrupoPlugin["Undefined"] = 5] = "Undefined";
 })(TipoGrupoPlugin = exports.TipoGrupoPlugin || (exports.TipoGrupoPlugin = {}));
 //# sourceMappingURL=ClienteComponente.interface.js.map

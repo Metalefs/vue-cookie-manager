@@ -1,7 +1,7 @@
 <template>
 
     <transition name="modal">
-      <div class="modal">
+      <div class="modal in">
 
         <div class="modal-mask" v-if="hasMask" @click="clickMask"></div>
 
@@ -67,28 +67,6 @@
     z-index: 999999;
     transform: scale(1);
     animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-    
-  }
-  @keyframes blowUpContent {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    99.9% {
-      transform: scale(2);
-      opacity: 0;
-    }
-    100% {
-      transform: scale(0);
-    }
-  }
-  @keyframes blowUpModal {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
   }
   .cli-modal-close {
     position: absolute;
@@ -230,31 +208,6 @@
     transform: translateX(9px) translateY(4px) rotate(-45deg);
     width: 2px;
   }
-
-@keyframes blowUpContent {
-  0% {
-    transform:scale(1);
-    opacity:1;
-  }
-  99.9% {
-    transform:scale(2);
-    opacity:0;
-  }
-  100% {
-    transform:scale(0);
-  }
-}
-
-@keyframes blowUpContentTwo {
-  0% {
-    transform:scale(2);
-    opacity:0;
-  }
-  100% {
-    transform:scale(1);
-    opacity:1;
-  }
-}
 @media only screen and (max-width: 414px){
   .modal-wrapper {
     position: relative;

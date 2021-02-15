@@ -22,7 +22,7 @@ unnacepted_list = {
 },
 
 p = new MutationObserver(function(t) {
-  alert("MutationObserver");
+  // alert("MutationObserver");
   for (var e = 0; e < t.length; e++)
     for (
       var i = t[e].addedNodes,
@@ -55,7 +55,7 @@ subtree: !0,
 });
 
 function validarSrcScript(src: any, type: string) {
-  alert("validarSrcScript");
+  // alert("validarSrcScript");
   return (
     src &&
     (!type || type !== jsBlockedType) &&
@@ -72,7 +72,7 @@ function validarSrcScript(src: any, type: string) {
 
  function validarScrElemento(elemento: Element) {
   var e = elemento.getAttribute("src");
-  alert("validarScrElemento");
+  // alert("validarScrElemento");
   return (
     (accepted_list.blacklist &&
       accepted_list.blacklist.every(function(t: { test: (arg0: any) => any; }) {

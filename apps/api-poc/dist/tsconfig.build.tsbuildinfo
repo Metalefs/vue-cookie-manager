@@ -1182,8 +1182,8 @@
         "affectsGlobalScope": false
       },
       "../../../libs/shared/src/interfaces/ClienteComponente.interface.ts": {
-        "version": "3e599a7f8d88899d638592c2b575ac6ae2452df1e73d744fddaa4060fbe7ec67",
-        "signature": "f3c2b7992f5a9bccb481cb102cc0afa3e02f4aa36fe4c738c6947f064d838e85",
+        "version": "a63dadea03985b0e9fb98afaec57a1a13ee7d8f11d890c0eee42aee44fba816f",
+        "signature": "fb51f1f6dd33ff86059c7090f3ec8c50761a3940ff2c98f6484c10474d65868d",
         "affectsGlobalScope": false
       },
       "../../../libs/shared/src/interfaces/index.ts": {
@@ -1197,7 +1197,7 @@
         "affectsGlobalScope": false
       },
       "../src/services/usuario.service.ts": {
-        "version": "1f612d4c29111c6e12d8e7019243ca6750fc4b7fa70dcf2e5d65015972ffd7d5",
+        "version": "5a19b31bda31f9bbfbe7ce990d827b7bbdc541160c55913ca8cf56c019b5c6d7",
         "signature": "219a48022f546f374094981996ab7f6bf3384d024e39810b2dda4c31a757bf0a",
         "affectsGlobalScope": false
       },
