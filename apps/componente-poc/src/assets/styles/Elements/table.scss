@@ -4,7 +4,6 @@
 .cookie-table-wrap{
   max-width: 1140px;
   overflow: hidden;
-  min-height: 216px;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   max-height: 300px;
@@ -58,7 +57,7 @@
     background-color: rgba(255,255,255,0.3);
    }
   .tbl-content{
-    height:300px;
+    // height:300px;
     overflow-x:auto;
     margin-top: 0px;
     border: 1px solid rgba(255,255,255,0.3);
@@ -71,6 +70,10 @@
     text-transform: uppercase;
     background: #F5F5F5;
     color: #4b4b4b;
+  }
+  tr{
+    
+    max-height: 300px;
   }
   td{
     padding: 7px 8px;

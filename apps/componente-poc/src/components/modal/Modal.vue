@@ -89,7 +89,6 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: contents;
     margin:auto;
     transition: width 200ms 0ms;
     &.in{
@@ -211,10 +210,8 @@
 @media only screen and (max-width: 414px){
   .modal-wrapper {
     position: relative;
-    width: 95vw;
-  }
-  .modal{
-    display: contents;
+    width: auto;
+    padding: 10px;
   }
 }
 </style>
