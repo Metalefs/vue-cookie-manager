@@ -50,9 +50,14 @@
         @Prop({default: false})Active:boolean;
         @Prop({default: "bottomToTop"}) readonly Animation:string;
         Open:boolean = false;
+
+        mounted(){
+            if(localStorage.getItem("security-policy-accept-"+this.Title) == "true")
+                this.Active = true;
+        }
+
         @Emit('toogleActive')
         ToogleActive(){
-            
             this.active = !this.active ;
             return {name:this.Title,active:this.active}
         }

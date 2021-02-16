@@ -136,6 +136,8 @@
       width: 100%;
       display: flex;
       border-radius: 10px;
+      border-bottom: 1px solid #cecece42;
+      border-left: 1px solid #cecece2e;
       justify-content: space-between;
       align-items: center;
       &:not(:empty) {
@@ -186,6 +188,6 @@
     padding: 10px;
   }
   .modal-header{
-    
+    padding: 0 !important;
   }
 }

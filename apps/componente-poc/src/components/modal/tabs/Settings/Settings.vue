@@ -4,7 +4,7 @@
         <p class="cli-privacy-content-text" v-html="textoVisaoGeralDePrivacidade"></p>
         <h4 class="cli-privacy-content-text">Configurações</h4>
 
-        <div class="cookie_category_description" >
+        <div class="cookie_category_description cli-privacy-content-text" >
             Usamos cookies para melhorar a experiência do usuário. Escolha quais cookies você nos permite usar.
         </div>
 
@@ -28,7 +28,7 @@
 
         <div class="Accordion">
             <Expander v-for="grupo in tableCookiesCategories"
-                @toogleActive="HandleCookie"
+                @toogleActive="HandleCookie" :Active="active"
                 :key="grupo.tipo" :Title="grupo.nome" Animation="bottomToTop">
                 <div slot="body">
                     <CookieTable :TableCookies="tableCookies"   
@@ -38,8 +38,8 @@
         </div>
 
         <aside style="display:flex;justify-content:space-around">
-            <button>Ativar todos</button>
-            <button>Desativar todos</button>
+            <button @click="Active = true">Ativar todos</button>
+            <button @click="Active = false">Desativar todos</button>
         </aside>
         
     </div>
@@ -50,7 +50,7 @@
     import Vue from 'vue';
     import Component from 'vue-class-component';
     import { Prop } from 'vue-property-decorator';
-    import { CustomCookie } from '../../../../../../../libs/shared/src/interfaces';
+    import { CustomCookie, TipoGrupoPlugin } from '../../../../../../../libs/shared/src/interfaces';
     import CookieTable from './CookieTable.vue';
     import CookieTableMobile from './CookieTableMobile.vue';
     import Expander from './Expander.vue';
@@ -67,8 +67,27 @@
         @Prop() readonly config:any;
         @Prop({default: ""}) readonly textoVisaoGeralDePrivacidade:string;
         @Prop({default: []}) readonly Cookies:CustomCookie[];
+        @Prop({default: false}) active:boolean;
         skip(){
             this.$emit('skip')
+        }
+        HandleCookie(event:{name:string, active:boolean}){
+            localStorage.setItem("security-policy-accept-"+event.name, event.active.toString());
+            localStorage.setItem("security-policy-accept-all", "false");
+        }
+        mounted(){
+            this.Active = localStorage.getItem("security-policy-accept-all") == "true";
+        }
+        set Active(value:boolean){
+            this.active = value;
+            localStorage.setItem("security-policy-accept-all",this.active.toString());
+           
+            this.tableCookiesCategories.forEach(cat=>{
+                localStorage.setItem("security-policy-accept-"+cat.nome, this.active.toString());
+            })
+        }
+        get Active():boolean{
+            return this.active;
         }
         get tableCookies():CustomCookie[] {
             return this.Cookies
@@ -76,9 +95,6 @@
         get tableCookiesCategories(){
             let cookieCategories = this.Cookies.map((x)=>x.grupo);
             return removeDuplicates(cookieCategories,'nome');
-        }
-        HandleCookie(event:any){
-            console.log(event)
         }
     }
 </script>
