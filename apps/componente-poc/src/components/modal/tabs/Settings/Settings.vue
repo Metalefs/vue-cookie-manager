@@ -5,7 +5,7 @@
         <h4 class="cli-privacy-content-text">Configurações</h4>
 
         <div class="cookie_category_description cli-privacy-content-text" >
-            Usamos cookies para melhorar a experiência do usuário. Escolha quais cookies você nos permite usar.
+            Escolha quais cookies você nos permite usar.
         </div>
 
         <!-- <div class="Accordion">
@@ -26,6 +26,10 @@
             :TableCookiesCategories="tableCookiesCategories"></CookieTableMobile>
         </div> -->
 
+        <aside style="display:flex;justify-content:flex-end;margin:10px">
+            <button @click="Active = !Active">{{Active?'Desativar Todos':'Ativar Todos'}}</button>
+        </aside>
+        
         <div class="Accordion">
             <Expander v-for="grupo in tableCookiesCategories"
                 @toogleActive="HandleCookie" :Active="active"
@@ -37,10 +41,6 @@
              </Expander>
         </div>
 
-        <aside style="display:flex;justify-content:space-around">
-            <button @click="Active = true">Ativar todos</button>
-            <button @click="Active = false">Desativar todos</button>
-        </aside>
         
     </div>
 </template>
@@ -104,7 +104,7 @@
     @import "../../../../assets/styles/Modal/index.scss";
     .Accordion {
         overflow: hidden;
-        margin: 10px;
+        margin: 20px 10px;
     }
     label{
         font-size: 15px;

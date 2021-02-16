@@ -11,12 +11,14 @@
     width: 100%;
     visibility: hidden;
     flex: 0 0 100%;
-    padding: .9em 2em 2em 2em;
+    padding: 0.9em 2em 0em 2em;
     overflow-y: scroll;
     overflow-x: hidden;
-
+    margin: auto;
+    max-height: -webkit-fill-available;
+    max-height: -moz-available;
+    max-height: stretch; 
     /* for custom scrollbar for webkit browser*/
-      
     &::-webkit-scrollbar {
       width: 6px;
     } 
@@ -32,7 +34,6 @@
     transition: sizeUP  300ms ease reverse;
     position: relative;
     
-    margin-top: 0;
     h2,h3,h4 {
       margin-top: 15px;
       font-weight: 500;
