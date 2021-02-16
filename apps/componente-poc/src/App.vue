@@ -1,6 +1,10 @@
 <template>
   <div id="security-policy">
-    <div :class="modal.isOpen ? 'transparent' : ''" id="cookie-law-info-bar" data-nosnippet="true" data-cli-style="cli-style-v2" style="background-color: rgb(12, 12, 12); color: rgb(255, 255, 255); font-family: Arial, Helvetica, sans-serif; bottom: 0px; position: fixed; display: block;">
+    <div :class="{'in':!bar.isOpen}" id="cookie-law-info-again" @click="toggleModalBar()">
+      <span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span>
+    </div>
+
+    <div :class="{'transparent':modal.isOpen, 'out': !bar.isOpen}" id="cookie-law-info-bar" data-nosnippet="true" data-cli-style="cli-style-v2" style="background-color: rgb(12, 12, 12); color: rgb(255, 255, 255); font-family: Arial, Helvetica, sans-serif; bottom: 0px; position: fixed;">
       <span>
         <div class="cli-bar-container cli-style-v2">
           <div class="avatar show-modal-icon"></div>
@@ -10,7 +14,7 @@
           </div>
           <div class="cli-bar-btn_container">
             <a role="button"  @click="toggleModal()"  tabindex="0" class="cli_settings_button" style="margin: 0px 10px 0px 5px; color: rgb(255, 255, 255);">Gestão de cookies</a>
-            <a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button" style="display: inline-block; color: rgb(255, 255, 255); background-color: rgb(243, 96, 40);">Aceitar</a>
+            <a role="button"  @click="toggleModalBar()" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button" style="display: inline-block; color: rgb(255, 255, 255); background-color: rgb(243, 96, 40);">Aceitar</a>
           </div>
         </div>
       </span>
@@ -86,6 +90,12 @@ export default class App extends Vue {
   private TextoPrivacyPolicy:string = "";
   private TextoVisaoGeralDePrivacidade:string = "";
   private cookies:CustomCookie[] = [];
+
+  bar:{
+    isOpen:boolean
+  } = {
+    isOpen:true
+  }
 
   modal: {
     isOpen:boolean,
@@ -224,6 +234,12 @@ export default class App extends Vue {
       }, 1)
     }
   }
+  toggleModalBar(){
+    this.bar.isOpen = !this.bar.isOpen;
+    if(this.bar.isOpen){
+      localStorage.setItem("security-policy-accept-all","true");
+    } 
+  }
   $el:any;
   setCssVars(){
     this.$el.style.setProperty('--x', (((this.config.step * 100) - 100) * this.x_multiplier) + '%')
@@ -259,5 +275,7 @@ export default class App extends Vue {
 
 <style lang="scss" scoped>
   @import "./assets/styles/App.scss";
-  
+  .cookie-law-info-again{
+    background-color: rgb(12, 12, 12); color: rgb(255, 255, 255); position: fixed; font-family: Arial, Helvetica, sans-serif; width: auto; bottom: 0px; right: 100px; display: block;
+  }
 </style>

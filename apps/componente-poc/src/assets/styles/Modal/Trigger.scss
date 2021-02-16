@@ -20,29 +20,56 @@
     bottom:-100px;
     padding: 10px 30px 25px 40px;
     animation:from_bottom 2s ease forwards;
-}
-@keyframes from_bottom{
-    from {
-        height: 0;
-        bottom:-100px;
+    display: block;
+    &.out{
+        animation:to_bottom .25s ease-in forwards;
     }
-    to{
-        height: auto;
-        bottom:0px;
+    
+    & span {
+        vertical-align: middle;
     }
 }
 #cookie-law-info-again {
-	font-size: 10pt;
-	margin: 0;
-	padding:5px 10px;
-	text-align: center;
-	z-index: 9999;
-	cursor: pointer;
-	box-shadow: #161616 2px 2px 5px 2px;
+    font-size: 10pt;
+    margin: 0;
+    padding:5px 10px;
+    text-align: center;
+    z-index: 9999;
+    cursor: pointer;
+    box-shadow: #161616 2px 2px 5px 2px;
+    background-color: rgb(12, 12, 12);
+    color: rgb(255, 255, 255);
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    width: auto;
+    bottom: 0px;
+    right: 100px;
+    display: block;
+    animation:to_bottom 0s ease-in forwards;
+    &.in{
+        animation:from_bottom 1s ease-in forwards;
+    }
 }
-#cookie-law-info-bar span {
-	vertical-align: middle;
+@keyframes from_bottom{
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {  
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+@keyframes to_bottom{
+    from {
+        opacity: 1;
+    }
+    to {  
+        opacity: .5;
+        transform: translateY(100%);
+    }
+}
+
 
 /** Buttons (http://papermashup.com/demos/css-buttons) */
 .cli-plugin-button, .cli-plugin-button:visited {
