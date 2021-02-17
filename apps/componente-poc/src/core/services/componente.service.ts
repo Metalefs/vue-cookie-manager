@@ -25,3 +25,8 @@ export const getUserPreferences = (KEY = 0, extraParams = {}) => {
   
   return Http.get<string>('/getUserPreferences', { params });
 };
+export const getStatusCliente = (KEY = 0, extraParams = {}) => {
+  const params = { KEY, ...extraParams }; 
+  
+  return Http.get<string>('/getStatusCliente', { params });
+};
