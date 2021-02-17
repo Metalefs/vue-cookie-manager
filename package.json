@@ -21,6 +21,8 @@
     "dev:componente:build": "cd apps/componente-poc && npm run build",
     "dev:visitante:start": "cd apps/visitante-poc && npm run serve",
     "dev:visitante:build": "cd apps/visitante-poc && npm run build",
+    "dev:cliente:start": "cd apps/cliente-poc && npm run dev",
+    "dev:cliente:build": "cd apps/cliente-poc && npm run build",
     "dev:nest:build": "cd apps/api-poc && npm run build",
     "dev:nest:start": "cd apps/api-poc && npm run start:dev",
     "dev:nest:lint": "cd apps/api-poc && npm run lint",

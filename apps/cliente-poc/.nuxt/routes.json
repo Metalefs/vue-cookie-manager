@@ -1,0 +1,51 @@
+[
+  {
+    "name": "acompanhamento-consentimento",
+    "path": "/acompanhamento-consentimento",
+    "component": "/home/hermes/Projetos/LGPD/LGPD-PORTNET-POC-monorepo/apps/cliente-poc/pages/acompanhamento-consentimento.vue",
+    "chunkName": "pages/acompanhamento-consentimento",
+    "_name": "_4188b6ce"
+  },
+  {
+    "name": "classificacao-cookies",
+    "path": "/classificacao-cookies",
+    "component": "/home/hermes/Projetos/LGPD/LGPD-PORTNET-POC-monorepo/apps/cliente-poc/pages/classificacao-cookies.vue",
+    "chunkName": "pages/classificacao-cookies",
+    "_name": "_0fdc2ec8"
+  },
+  {
+    "name": "dashboard",
+    "path": "/dashboard",
+    "component": "/home/hermes/Projetos/LGPD/LGPD-PORTNET-POC-monorepo/apps/cliente-poc/pages/dashboard.vue",
+    "chunkName": "pages/dashboard",
+    "_name": "_5f6632db"
+  },
+  {
+    "name": "inspire",
+    "path": "/inspire",
+    "component": "/home/hermes/Projetos/LGPD/LGPD-PORTNET-POC-monorepo/apps/cliente-poc/pages/inspire.vue",
+    "chunkName": "pages/inspire",
+    "_name": "_6d6847e1"
+  },
+  {
+    "name": "preferencias",
+    "path": "/preferencias",
+    "component": "/home/hermes/Projetos/LGPD/LGPD-PORTNET-POC-monorepo/apps/cliente-poc/pages/preferencias.vue",
+    "chunkName": "pages/preferencias",
+    "_name": "_0435dd5a"
+  },
+  {
+    "name": "privacidade",
+    "path": "/privacidade",
+    "component": "/home/hermes/Projetos/LGPD/LGPD-PORTNET-POC-monorepo/apps/cliente-poc/pages/privacidade.vue",
+    "chunkName": "pages/privacidade",
+    "_name": "_17218cbd"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/hermes/Projetos/LGPD/LGPD-PORTNET-POC-monorepo/apps/cliente-poc/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_668a5199"
+  }
+]
