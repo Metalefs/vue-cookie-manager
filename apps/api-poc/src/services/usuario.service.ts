@@ -201,7 +201,9 @@ export class UsuarioService {
     };
 
     if (KEY == '234') {
-      return usuario;
+      if (usuario.statusAtivacao == StatusAtivacaoCliente.ativo) {
+        return usuario;
+      }
     }
 
     throw { erro: 'Chave de acesso inválida' };
