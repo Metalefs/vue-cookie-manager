@@ -44,9 +44,7 @@
     "typescript": "~3.9.3"
   },
   "dependencies": {
-    "@monorepify/shared": "1.0.0",
-    "reflect-metadata": "0.1.13",
-    "vue-toggles": "^1.1.0"
+   
   },
   "engines": {
     "node": ">=12.0.0",

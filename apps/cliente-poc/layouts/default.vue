@@ -58,10 +58,10 @@
 
       <v-spacer></v-spacer>
       <NuxtLink NuxtLink to="/">
-       <v-btn icon>
-        <v-icon>mdi-logout-variant</v-icon>
-      </v-btn>
-    </NuxtLink>
+        <v-btn icon>
+          <v-icon>mdi-logout-variant</v-icon>
+        </v-btn>
+      </NuxtLink>
      
     </v-app-bar>
 

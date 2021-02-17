@@ -8,13 +8,10 @@ import { UsuarioService } from './services/usuario.service';
 @Module({
   imports: [],
   controllers: [ComponenteController],
-  providers: [ComponenteService,CookieScan,UsuarioService],
+  providers: [ComponenteService, CookieScan, UsuarioService],
 })
-export class AppModule  implements NestModule {
+export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(KeyInterceptor)
-      .forRoutes(ComponenteController)
-      
+    consumer.apply(KeyInterceptor).forRoutes(ComponenteController);
   }
 }

@@ -11,4 +11,5 @@ export declare class ComponenteController {
     getPrivacyPolicy(query: any): string;
     getUserPreferences(query: any): Promise<PreferenciasComponente>;
     CookieScan(req: any): Promise<import("../../../../libs/shared/src/interfaces").CustomCookie[]>;
+    getStatusCliente(req: any): Promise<import("../../../../libs/shared/src/interfaces").StatusAtivacaoCliente>;
 }

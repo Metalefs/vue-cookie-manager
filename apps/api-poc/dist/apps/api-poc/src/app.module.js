@@ -15,9 +15,7 @@ const cookieScan_service_1 = require("./services/cookieScan.service");
 const usuario_service_1 = require("./services/usuario.service");
 let AppModule = class AppModule {
     configure(consumer) {
-        consumer
-            .apply(key_interceptor_1.KeyInterceptor)
-            .forRoutes(componente_controller_1.ComponenteController);
+        consumer.apply(key_interceptor_1.KeyInterceptor).forRoutes(componente_controller_1.ComponenteController);
     }
 };
 AppModule = __decorate([

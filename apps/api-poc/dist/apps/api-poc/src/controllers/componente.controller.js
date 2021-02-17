@@ -43,6 +43,11 @@ let ComponenteController = class ComponenteController {
         return await (await this.usuarioService.ObterPorAPI_KEY(key)).dominios[0]
             .cookies;
     }
+    async getStatusCliente(req) {
+        const key = req.headers['component-key'];
+        return await (await this.usuarioService.ObterPorAPI_KEY(key))
+            .statusAtivacao;
+    }
 };
 __decorate([
     common_1.Get('getTextoBarraComponente'),
@@ -86,6 +91,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], ComponenteController.prototype, "CookieScan", null);
+__decorate([
+    common_1.Get('getStatusCliente'),
+    __param(0, common_1.Req()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], ComponenteController.prototype, "getStatusCliente", null);
 ComponenteController = __decorate([
     common_1.Controller(),
     __metadata("design:paramtypes", [componente_service_1.ComponenteService,
