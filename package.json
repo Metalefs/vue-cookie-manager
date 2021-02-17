@@ -17,10 +17,13 @@
   "scripts": {
     "dev:all:start": "concurrently --names \"SHARED,VUE,NEST\" -c \"yellow.bold,yellow.bold\" \"yarn dev:shared:start\" \"yarn dev:vue:start\" \"yarn dev:nest:start\"",
     "dev:all:build": "yarn dev:shared:build && yarn dev:vue:build && yarn dev:nest:build",
+    "dev:componente:install": "cd apps/componente-poc && npm install",
     "dev:componente:start": "cd apps/componente-poc && npm run serve",
     "dev:componente:build": "cd apps/componente-poc && npm run build",
+    "dev:visitante:install": "cd apps/visitante-poc && npm install",
     "dev:visitante:start": "cd apps/visitante-poc && npm run serve",
     "dev:visitante:build": "cd apps/visitante-poc && npm run build",
+    "dev:cliente:install": "cd apps/cliente-poc && npm install",
     "dev:cliente:start": "cd apps/cliente-poc && npm run dev",
     "dev:cliente:build": "cd apps/cliente-poc && npm run build",
     "dev:nest:build": "cd apps/api-poc && npm run build",

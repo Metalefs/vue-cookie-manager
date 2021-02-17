@@ -192,7 +192,9 @@ class UsuarioService {
             chaveAPI: '234',
         };
         if (KEY == '234') {
-            return usuario;
+            if (usuario.statusAtivacao == index_1.StatusAtivacaoCliente.ativo) {
+                return usuario;
+            }
         }
         throw { erro: 'Chave de acesso inválida' };
     }

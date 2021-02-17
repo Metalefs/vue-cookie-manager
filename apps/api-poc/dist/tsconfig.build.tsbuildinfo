@@ -1197,7 +1197,7 @@
         "affectsGlobalScope": false
       },
       "../src/services/usuario.service.ts": {
-        "version": "5fb6ba3cd5d726d0cf828f1c904c93f03846005ed92ad6ba6563a9a8258fe4cf",
+        "version": "42cfd1de3b9e48f78c701d8bfedd901bd6a3386a982f100477c2f46007b66fef",
         "signature": "219a48022f546f374094981996ab7f6bf3384d024e39810b2dda4c31a757bf0a",
         "affectsGlobalScope": false
       },
