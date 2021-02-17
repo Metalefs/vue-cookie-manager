@@ -127,10 +127,6 @@ export default class App extends Vue {
   }
  
   mounted(){
-
-    service.getStatusCliente().then((x):any=>{
-      this.TextoBarra = x.data;
-    });
     service.getTextoBarraComponente().then((x):any=>{
       this.TextoBarra = x.data;
     });
