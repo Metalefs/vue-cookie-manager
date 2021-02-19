@@ -10,9 +10,7 @@
         </v-toolbar-items>
       </v-toolbar>
       <v-card>
-        <v-card-subtitle class="headline">
-          Obtenha o código!
-        </v-card-subtitle>
+        
         <v-card-text>
           <p>Adicione esse script no topo do seu site, logo após a tag &lt;head&gt;</p>
           <div class="script-container">

@@ -17,6 +17,7 @@
               <span class="wt-cli-sr-only">Fechar</span>
             </button>
           </div>
+
           <div class="modal-body">
             <slot name="body">
               Body
@@ -28,6 +29,7 @@
               Footer
             </slot>
           </div>
+          
         </div>
       </div>
     </transition>

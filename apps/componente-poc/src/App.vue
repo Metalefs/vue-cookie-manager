@@ -130,7 +130,7 @@
       </article>
 
       <footer slot="footer">
-        <!-- <button class="forward-actions accent save"  @click="finish">Salvar</button> -->
+        <button class="forward-actions accent save"  @click="saveAndClose">Salvar</button>
       </footer>
     </modal>
   </div>
@@ -200,8 +200,9 @@ export default class App extends Vue {
   }
 
   mounted() {
-    var result = service.getStatusCliente();
-    this.ativo = result == 0 ? false : true;
+    service.getStatusCliente().then((x): any => {
+      this.ativo = x.data == "1" ? false : true;
+    });
     service.getTextoBarraComponente().then((x): any => {
       this.TextoBarra = x.data;
     });
@@ -351,8 +352,9 @@ export default class App extends Vue {
   reset() {
     this.goToStep(1);
   }
-  finish() {
+  saveAndClose() {
     this.toggleModal(0);
+    this.toggleModalBar()
   }
 }
 </script>

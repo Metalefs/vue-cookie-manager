@@ -486,7 +486,11 @@ color:inherit;
 	margin-bottom:0;
 }
 .cli-modal-close svg {
-    fill: #000;
+    fill: #cecece;
+    &:hover {
+        color: #999;
+        transform: scaleX(1.1);
+    }
 }
 span.cli-necessary-caption {
     color: #000;

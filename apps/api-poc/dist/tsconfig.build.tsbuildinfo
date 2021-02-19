@@ -1197,12 +1197,12 @@
         "affectsGlobalScope": false
       },
       "../src/services/usuario.service.ts": {
-        "version": "42cfd1de3b9e48f78c701d8bfedd901bd6a3386a982f100477c2f46007b66fef",
+        "version": "621112e852a88a7f2b1d3d6f1abd2d83a677d8631deb2b84b94f925efb45ad61",
         "signature": "219a48022f546f374094981996ab7f6bf3384d024e39810b2dda4c31a757bf0a",
         "affectsGlobalScope": false
       },
       "../src/controllers/componente.controller.ts": {
-        "version": "bf0f0586cca96be10775252fcfa2f58d21db229f343b259770a745aa55346526",
+        "version": "2d6e35cd55ee0fd42096987ba0f7c1af15859518a13ee2da938f2780808720ed",
         "signature": "111a911c23eff4451a739ac5bbd9fdc00c89c00dced8ca0599a9111ed3d88a5c",
         "affectsGlobalScope": false
       },
@@ -1487,8 +1487,8 @@
         "affectsGlobalScope": false
       },
       "../src/services/cookieScan.service.ts": {
-        "version": "1b170d0dbe34ec09d3e8f59b4a3b2730356d3cdd2860d814a80093d66d2a2b09",
-        "signature": "032f95e48b69ccf4f4b70534968dab5369d27f90dbfaa1fd008826cbdba4c405",
+        "version": "6114e87a755e411e235ed99a2215245ecb6872fe94dbc2803f197d1a6137181c",
+        "signature": "4e6abf579be860f834c9caa14f530abfd1865b11335731daa90187f53b547ce3",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
@@ -1683,7 +1683,7 @@
       },
       "../src/controllers/cliente.controller.ts": {
         "version": "612bac9eaf847acc816422a60321dbfc28d175588bd094a530e27472161c2c21",
-        "signature": "88f9d2cf7b1fc46d5d376d31862f5b1fbf4fbfdaf5754d190f681c7ec8f6b2da",
+        "signature": "3ac49ec5d6de86a83a0219f5c7664f170dce3134743e5dffa404aa847131571a",
         "affectsGlobalScope": false
       },
       "../src/controllers/portnet.controller.ts": {

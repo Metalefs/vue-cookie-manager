@@ -53,13 +53,5 @@ export class ComponenteController {
     const key = req.headers['component-key'];
     return await (await this.usuarioService.ObterPorAPI_KEY(key))
       .statusAtivacao;
-
-    // const origin = req.headers['origin'];  // próxima versão
-    // const endereco =
-    //   (await this.usuarioService.ObterPorAPI_KEY(key)).dominios.find((x) =>
-    //     x.endereco.includes(origin),
-    //   ).endereco || origin;
-
-    // return await this.cookieScan.Scan(endereco); // próxima versão
   }
 }

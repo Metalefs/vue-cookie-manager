@@ -1,28 +1,23 @@
 
+export const CB_BLACKLIST = [
 
-export const SP_BLACKLIST = [
-  /doubleclick.net/,
-  /.marchex.io/,
-  /connect.facebook.net/,
-  /.simpli.fi/,
-  /ec.editmysite.com/,
-  /google-analytics.com/,
-  /www.googleadservices.com/,
-  /widget.privy.com/,
-  /sdk.beeketing.com/,
-];
-
-var jsBlockedType = "javascript/blocked",
-accepted_list = {
-  blacklist: window?.['SP_BLACKLIST'],
+  /mercadopago.com/,
+  /analytics.twitter.com/,
+  /snap.licdn.com/
+]; 
+ 
+var jsBlockedType = "javascript/blocked";
+export let accepted_list = { 
+  blacklist: CB_BLACKLIST,
   whitelist: window?.['SP_WHITELIST'],
-},
-unnacepted_list = {
+};
+export let unnacepted_list = {
   blacklisted: [],
 },
 
 p = new MutationObserver(function(t) {
   // alert("MutationObserver");
+  
   for (var e = 0; e < t.length; e++)
     for (
       var i = t[e].addedNodes,
@@ -31,6 +26,7 @@ p = new MutationObserver(function(t) {
           if (1 === n.nodeType && "SCRIPT" === n['tagName']) {
             var e = n['src'],
               r = n['type'];
+              console.log(n)
             if (validarSrcScript(e, r)) {
               unnacepted_list.blacklisted.push(n.cloneNode() as never),
                 (n['type'] = jsBlockedType);
@@ -40,49 +36,62 @@ p = new MutationObserver(function(t) {
                   n.removeEventListener("beforescriptexecute", t);
               }),
                 n.parentElement && n.parentElement.removeChild(n);
+              }
             }
-          }
-        },
-        r = 0;
-      r < i.length;
-      r++
-    )
-      n(r);
+          },
+          r = 0;
+          r < i.length;
+          r++
+          )
+          n(r);
 });
 p.observe(document.documentElement, {
-childList: !0,
-subtree: !0,
+  childList: !0,
+  subtree: !0,
 });
 
 function validarSrcScript(src: any, type: string) {
-  // alert("validarSrcScript");
+  // accepted_list.blacklist = JSON.parse(localStorage.getItem("cb_security_blacklist")||"");
+  // accepted_list.whitelist = JSON.parse(localStorage.getItem("cb_security_whitelist")||"");
+  
   return (
     src &&
     (!type || type !== jsBlockedType) &&
     (!accepted_list.blacklist ||
       accepted_list.blacklist.some(function(t: { test: (arg0: any) => any; }) {
+        if(t.test(src))
+        //alert("accepted_list.blacklist : "+src +" "+t.test(src));
         return t.test(src);
       })) &&
     (!accepted_list.whitelist ||
       accepted_list.whitelist.every(function(t: { test: (arg0: any) => any; }) {
+        if(t.test(src))
+        //alert("accepted_list.whitelist : "+src +" "+t.test(src));
         return !t.test(src);
       }))
   )
 }
 
  function validarScrElemento(elemento: Element) {
-  var e = elemento.getAttribute("src");
-  // alert("validarScrElemento");
-  return (
-    (accepted_list.blacklist &&
-      accepted_list.blacklist.every(function(t: { test: (arg0: any) => any; }) {
-        return !t.test(e);
-      })) ||
-    (accepted_list.whitelist &&
-      accepted_list.whitelist.some(function(t: { test: (arg0: any) => any; }) {
-        return t.test(e);
-      }))
-  )
+   var src = elemento.getAttribute("src");
+  //  accepted_list.blacklist = JSON.parse(localStorage.getItem("cb_security_blacklist")||"");
+  //  accepted_list.whitelist = JSON.parse(localStorage.getItem("cb_security_whitelist")||"");
+   
+    return (
+      (accepted_list.blacklist &&
+        accepted_list.blacklist.every(function(t: { test: (arg0: any) => any; }) {
+          if(t.test(src))
+          //alert("accepted_list.blacklist : "+src +" "+t.test(src));
+          return !t.test(src);
+        })) ||
+      (accepted_list.whitelist &&
+        accepted_list.whitelist.some(function(t: { test: (arg0: any) => any; }) {
+          if(t.test(src))
+          //alert("accepted_list.whitelist : "+src +" "+t.test(src));
+          return t.test(src);
+        }))
+
+    )
 }
 
 function getArray(t: (RegExp | null)[]) {
@@ -108,9 +117,8 @@ function getArray(t: (RegExp | null)[]) {
     })()
   );
 }
-
 export module BlacklistService {
-
+ 
  var mp_document_createElement = document.createElement;
  
  document.createElement = function() {
@@ -120,16 +128,16 @@ export module BlacklistService {
    if (
      typeof newArray[0] == "string" &&
      "script" !== newArray[0].toLowerCase()
-   )
-     return mp_document_createElement.bind(document).apply(void 0, newArray as any);
-   var bind_mp_document_createElement = mp_document_createElement
+   ) 
+     return mp_document_createElement.bind(document).apply(void 0, newArray as any); // se o elemento criado não for um script, permitir.
+        var bind_mp_document_createElement = mp_document_createElement
        .bind(document)
        .apply(void 0, newArray as any),
-     bind_SetAttribute = bind_mp_document_createElement.setAttribute.bind(
-       bind_mp_document_createElement
-     );
+          bind_SetAttribute = bind_mp_document_createElement.setAttribute.bind(
+            bind_mp_document_createElement
+          );
    try {
-     Object.defineProperties(bind_mp_document_createElement, {
+     Object.defineProperties(bind_mp_document_createElement, { // Realizando monkey patch dos atributos do elemento criado
        src: {
          get: function() {
            return bind_mp_document_createElement.getAttribute("src");
@@ -137,21 +145,21 @@ export module BlacklistService {
          set: function(value) {
            return (
              validarSrcScript(value, bind_mp_document_createElement['type']) &&
-               bind_SetAttribute("type", jsBlockedType),
-             bind_SetAttribute("src", value),
-             !0
+               bind_SetAttribute("type", jsBlockedType), bind_SetAttribute("src", value), !0 // Impedindo execução script blacklisted : Alterando o type do script criado para o tipo bloqueado
            );
          },
        },
        type: {
          set: function(value) {
-           var e = validarSrcScript(
-             bind_mp_document_createElement['src'],
-             bind_mp_document_createElement['type']
-           )
+           var match = validarSrcScript(
+              bind_mp_document_createElement['src'],
+              bind_mp_document_createElement['type']
+          );
+
+             var e = match
              ? jsBlockedType
              : value;
-           return bind_SetAttribute("type", e), !0;
+           return bind_SetAttribute("type", e), !0; // Impedindo execução script : Alterando o type do script blacklisted criado para o tipo bloqueado
          },
        },
      }),
@@ -175,7 +183,7 @@ export module BlacklistService {
    return bind_mp_document_createElement;
  };
  var d = new RegExp("[|\\{}()[\\]^$+*?.]", "g");
- const unblock = function() {
+ export const unblock = function() {
    for (var t = arguments.length, n = new Array(t), e = 0; e < t; e++)
      n[e] = arguments[e];
    n.length < 1
@@ -249,12 +257,5 @@ export module BlacklistService {
    p.disconnect();
  }
  
- // !function() {
- 
- //   var e = document.createElement("SCRIPT");
- //   e.src = "https://app.secureprivacy.ai/secureprivacy-plugin/web-plugin/secure-privacy-v1.js?v=" + Math.random(),
- //   e.type = "text/javascript",
- //   document.getElementsByTagName("head")[0].appendChild(e)
- // }();
 
 } 

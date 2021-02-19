@@ -55,6 +55,8 @@
     import CookieTableMobile from './CookieTableMobile.vue';
     import Expander from './Expander.vue';
     import {removeDuplicates} from '../../../../core/helper/objHelper';
+    import {BlacklistService} from '../../../../core/services/cookies/blacklist.service';
+    import {CBLocalStorage} from '../../../../core/data/cb_group_enum';
 
     @Component({
         components:{
@@ -72,18 +74,31 @@
             this.$emit('skip')
         }
         HandleCookie(event:{name:string, active:boolean}){
-            localStorage.setItem("security-policy-accept-"+event.name, event.active.toString());
-            localStorage.setItem("security-policy-accept-all", "false");
+            localStorage.setItem(CBLocalStorage.Accept+"-"+event.name, event.active.toString());
+            localStorage.setItem(CBLocalStorage.AcceptAll, "false");
         }
         mounted(){
-            this.Active = localStorage.getItem("security-policy-accept-all") == "true";
+            this.Active = localStorage.getItem(CBLocalStorage.AcceptAll) == "true";
         }
+
+        blockPluginGroup(group:CustomCookie[]){
+            // group.forEach(plugin=>{
+            //     BlacklistService.block();
+            // });
+        }
+
+        unblockPluginGroup(group:CustomCookie[]){
+            group.forEach(plugin=>{
+                BlacklistService.unblock();
+            });
+        }
+
         set Active(value:boolean){
             this.active = value;
-            localStorage.setItem("security-policy-accept-all",this.active.toString());
+            localStorage.setItem(CBLocalStorage.AcceptAll,this.active.toString());
            
             this.tableCookiesCategories.forEach(cat=>{
-                localStorage.setItem("security-policy-accept-"+cat.nome, this.active.toString());
+                localStorage.setItem(CBLocalStorage.Accept+"-"+cat.name, this.active.toString());
             })
         }
         get Active():boolean{
@@ -92,7 +107,7 @@
         get tableCookies():CustomCookie[] {
             return this.Cookies
         }
-        get tableCookiesCategories(){
+        get tableCookiesCategories():CustomCookie[]{
             let cookieCategories = this.Cookies.map((x)=>x.grupo);
             return removeDuplicates(cookieCategories,'nome');
         }

@@ -4,10 +4,21 @@ exports.CookieScan = void 0;
 const puppeteer = require('puppeteer');
 class CookieScan {
     async Scan(url) {
-        const browser = await puppeteer.launch({});
-        const page = await browser.newPage();
-        await page.goto(url, { waitUntil: 'networkidle2' });
-        return await page._client.send('Network.getAllCookies');
+        try {
+            const browser = await puppeteer.launch({});
+            const [page] = await browser.pages();
+            await page.goto(url, {
+                waitUntil: 'networkidle0',
+            });
+            const sources = await page.evaluate(() => Array.from(document.querySelectorAll('script')).map((elem) => elem.src));
+            console.log(sources);
+            const cookies = await page._client.send('Network.getAllCookies');
+            await browser.close();
+            return { cookies, sources };
+        }
+        catch (err) {
+            throw err;
+        }
     }
 }
 exports.CookieScan = CookieScan;

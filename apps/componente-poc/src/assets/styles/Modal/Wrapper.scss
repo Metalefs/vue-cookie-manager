@@ -30,8 +30,7 @@
     }
     will-change: transform;
     transform: translate(var(--x, 0%), var(--y, 0%));
-    transition: transform 100ms ease-out;
-    transition: sizeUP  300ms ease reverse;
+    transition: transform 100ms ease;
     position: relative;
     
     h2,h3,h4 {
@@ -54,13 +53,13 @@
     box-shadow: 0 0 0 1px rgba(#000, .1);
   }
   .save{
-    padding:1rem;
+    padding:1rem !important;
     max-width: 200px;
     margin:10px;
-    background: rgb(126, 191, 75);
+    background: #545454;
     padding: 16px 14px;
-    float: right;
     cursor: pointer;
+    color: white;
     font-weight: 600;
     line-height: 14px;
     min-width: 173px;

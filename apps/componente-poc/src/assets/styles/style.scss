@@ -16,6 +16,10 @@ h1, h2, h3, h4, h5, h6 {
 a {
   font-size: 14px;
   text-decoration: none;
+  transition: all .25s ease;
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
 del {
@@ -46,8 +50,11 @@ button{
   &:active {
     transform: scale(.95);
   }
-  &:hover{
-    
+  &:hover {
+    transform: scaleX(1.05);
+  }
+  &:not(:empty) {
+    padding: .5em;
   }
 }
 

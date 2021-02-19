@@ -39,6 +39,7 @@
     import Component from 'vue-class-component';
     import { Emit, Prop, Watch } from 'vue-property-decorator';
     import VueToggles from 'vue-toggles';
+import { CBLocalStorage } from '../../../../core/data/cb_group_enum';
 
     @Component({
         components:{
@@ -52,7 +53,7 @@
         Open:boolean = false;
 
         mounted(){
-            if(localStorage.getItem("security-policy-accept-"+this.Title) == "true")
+            if(localStorage.getItem(CBLocalStorage.Accept+"-"+this.Title) == "true")
                 this.Active = true;
         }
 

@@ -7,7 +7,8 @@
     color: #000;
 }
 .tabs ul.lg .btn {
-    background: #eee;
+    /*background: #eee;
+    background-color: #fff;*/
     padding: 12px;
     border-radius: .3rem;
     cursor: pointer;
@@ -20,11 +21,9 @@
     border-radius: 5px;
     padding: 12px 15px;
     cursor: pointer;
-    background-color: #fff;
     background-clip: padding-box;
     transition: background-color 0.2s ease-out 0.3s, color 0.2s ease-out 0s;
     &:hover {
-        background: #00965d;
         color: #ffffff;
     }
 }
@@ -33,12 +32,13 @@
     display: flex;
     align-items: center;
     font-size: 14px;
-    color: #000;
+    color: #fff;
     text-transform: capitalize;
     max-width: 26%;
     font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif;
 }
 .tabs ul.lg .btn-default:hover, .tabs ul.lg .active {
-    background: #fff;
-    color: grey;
+    /*background: #fff;*/
+    font-weight: 500;
+    color: #cecece;
 }
