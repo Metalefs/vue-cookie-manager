@@ -3,6 +3,8 @@ Projeto Gerenciador LGPD
 
 ![image](https://user-images.githubusercontent.com/40893204/127348612-fdd1f2cb-e09d-4a95-b5c5-d6575aee6f51.png)
 
+![poc-cookies_gif](https://user-images.githubusercontent.com/40893204/127393767-18deca7d-d8c8-469d-b967-548079b36b67.gif)
+
 
 MAPEAMENTO DO FUNCIONAMENTO.
 
