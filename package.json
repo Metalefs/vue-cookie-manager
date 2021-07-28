@@ -15,8 +15,9 @@
     ]
   },
   "scripts": {
-    "dev:all:start": "concurrently --names \"SHARED,VUE,NEST\" -c \"yellow.bold,yellow.bold\" \"yarn dev:shared:start\" \"yarn dev:vue:start\" \"yarn dev:nest:start\"",
-    "dev:all:build": "yarn dev:shared:build && yarn dev:vue:build && yarn dev:nest:build",
+    "dev:all:start": "concurrently --names \"SHARED,VUE,NEST\" -c \"yellow.bold,yellow.bold\" \"npm run dev:nest:start\" \"npm run dev:componente:start\" \"npm run dev:visitante:start\"",
+    "dev:all:build": "npm run dev:nest:build && npm run dev:componente:build && npm run dev:visitante:build & npm run dev:cliente:build",
+    "dev:all:install": "npm run dev:nest:install & npm run dev:componente:install & npm run dev:visitante:install & npm run dev:cliente:install",
     "dev:componente:install": "cd apps/componente-poc && npm install",
     "dev:componente:start": "cd apps/componente-poc && npm run serve",
     "dev:componente:build": "cd apps/componente-poc && npm run build",
@@ -26,6 +27,7 @@
     "dev:cliente:install": "cd apps/cliente-poc && npm install",
     "dev:cliente:start": "cd apps/cliente-poc && npm run dev",
     "dev:cliente:build": "cd apps/cliente-poc && npm run build",
+    "dev:nest:install": "cd apps/api-poc && npm install",
     "dev:nest:build": "cd apps/api-poc && npm run build",
     "dev:nest:start": "cd apps/api-poc && npm run start:dev",
     "dev:nest:lint": "cd apps/api-poc && npm run lint",
@@ -46,9 +48,7 @@
     "tslint": "5.20.1",
     "typescript": "~3.9.3"
   },
-  "dependencies": {
-   
-  },
+  "dependencies": {},
   "engines": {
     "node": ">=12.0.0",
     "npm": ">=6.0.0",

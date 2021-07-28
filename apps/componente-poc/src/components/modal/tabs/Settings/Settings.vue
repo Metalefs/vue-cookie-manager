@@ -1,7 +1,7 @@
 <template>
     <div class="cli-privacy-content">
         <h4 class="cli-privacy-content-text">Visão Geral de Privacidade</h4>
-        <p class="cli-privacy-content-text" v-html="textoVisaoGeralDePrivacidade"></p>
+        <p class="cookie_category_description cli-privacy-content-text" v-html="textoVisaoGeralDePrivacidade"></p>
         <h4 class="cli-privacy-content-text">Configurações</h4>
 
         <div class="cookie_category_description cli-privacy-content-text" >
