@@ -11,7 +11,7 @@ MAPEAMENTO DO FUNCIONAMENTO.
 Passo a passo para configurar:
 
 1. executar `npm i` na raíz do projeto.
-2. executar `npm run dev:all:install´ na raíz do projeto.
+2. executar `npm run dev:all:install` na raíz do projeto.
 3. executar `npm run dev:all:build` na raíz do projeto.
 4. executar `npm run dev:all:start` na raíz do projeto.
 5. abrir o browser no endereço http://localhost:8081/;
