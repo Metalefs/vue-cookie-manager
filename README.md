@@ -1,6 +1,9 @@
 # POC
 Projeto Gerenciador LGPD
 
+![image](https://user-images.githubusercontent.com/40893204/127348612-fdd1f2cb-e09d-4a95-b5c5-d6575aee6f51.png)
+
+
 MAPEAMENTO DO FUNCIONAMENTO.
 
 _________________________________________________________________________________________________________________________________
